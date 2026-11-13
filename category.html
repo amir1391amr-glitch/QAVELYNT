@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explore | QAVELYNT</title>
+<style>
+:root {
+  --black:#100E0C;
+  --dark:#191511;
+  --brown:#60432F;
+  --cream:#F1E8D8;
+  --soft:#B9A58E;
+  --line:#352A21;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:Arial,sans-serif;
+}
+header {
+  padding:22px 7%;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo {
+  font-size:20px;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+.logo span { color:var(--soft); }
+nav a {
+  color:var(--soft);
+  text-decoration:none;
+  margin-left:18px;
+  font-size:13px;
+}
+main {
+  width:min(1100px,86%);
+  margin:70px auto;
+}
+.eyebrow {
+  color:var(--soft);
+  letter-spacing:3px;
+  font-size:12px;
+}
+h1 {
+  font-size:clamp(38px,7vw,65px);
+  margin:18px 0;
+}
+.intro {
+  color:var(--soft);
+  line-height:1.9;
+  max-width:650px;
+}
+.search {
+  width:100%;
+  margin-top:35px;
+  padding:16px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  color:var(--cream);
+  font-size:15px;
+  outline:none;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:25px;
+}
+.item {
+  padding:24px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  color:var(--cream);
+  text-decoration:none;
+  transition:.2s;
+}
+.item:hover {
+  border-color:var(--soft);
+  transform:translateY(-3px);
+}
+.item h3 { margin:0 0 10px; font-size:18px; }
+.item p {
+  color:var(--soft);
+  font-size:13px;
+  line-height:1.7;
+  margin:0;
+}
+.back {
+  display:inline-block;
+  margin-top:50px;
+  color:var(--soft);
+  text-decoration:none;
+}
+footer {
+  border-top:1px solid var(--line);
+  padding:25px;
+  color:var(--soft);
+  font-size:12px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">QAVE<span>LYNT</span></div>
+  <nav><a href="index.html">Home</a></nav>
+</header>
+
+<main>
+  <div class="eyebrow">QAVELYNT / EXPLORE</div>
+  <h1 id="heading">Explore</h1>
+  <p class="intro" id="description">
+    Discover ideas, share knowledge and connect with people.
+  </p>
+
+  <input class="search" id="search"
+    placeholder="Search topics..."
+    aria-label="Search topics">
+
+  <div class="grid" id="grid"></div>
+
+  <a class="back" href="index.html">← Back to Home</a>
+</main>
+
+<footer>QAVELYNT · Connect Ideas. Build Tomorrow.</footer>
+
+<script>
+const categories = {
+  "technology": {
+    title:"Technology",
+    description:"Explore innovation, digital tools and the technologies shaping tomorrow.",
+    topics:[
+      "Artificial Intelligence",
+      "Software Development",
+      "Robotics",
+      "Cybersecurity",
+      "Web Development",
+      "Data Science",
+      "Computer Engineering",
+      "Hardware"
+    ]
+  },
+  "artificial-intelligence": {
+    title:"Artificial Intelligence",
+    description:"Explore intelligent systems, machine learning and the future of AI.",
+    topics:["Machine Learning","Deep Learning","Natural Language Processing","Computer Vision","AI Research"]
+  },
+  "science": {
+    title:"Science",
+    description:"Discover scientific ideas, experiments and new discoveries.",
+    topics:["Physics","Chemistry","Biology","Earth Science","Scientific Research"]
+  },
+  "business": {
+    title:"Business",
+    description:"Explore business ideas, management and entrepreneurship.",
+    topics:["Management","Startups","Business Strategy","Leadership","E-commerce"]
+  },
+  "arts-design": {
+    title:"Arts & Design",
+    description:"Explore creativity, visual communication and artistic expression.",
+    topics:["Graphic Design","Illustration","Painting","Digital Art","UI/UX Design"]
+  },
+  "education": {
+    title:"Education",
+    description:"Share knowledge and discover new ways to learn and teach.",
+    topics:["Teaching","Online Learning","Educational Technology","Learning Research"]
+  },
+  "health": {
+    title:"Health",
+    description:"Explore health education, wellbeing and medical innovation.",
+    topics:["Public Health","Health Technology","Medical Research","Wellbeing"]
+  },
+  "engineering": {
+    title:"Engineering",
+    description:"Discover engineering disciplines and practical innovation.",
+    topics:["Mechanical Engineering","Electrical Engineering","Civil Engineering","Chemical Engineering"]
+  },
+  "environment": {
+    title:"Environment",
+    description:"Explore sustainability, nature and environmental solutions.",
+    topics:["Climate Science","Conservation","Renewable Energy","Sustainability"]
+  },
+  "sports": {
+    title:"Sports",
+    description:"Explore athletic performance, sports science and teamwork.",
+    topics:["Sports Science","Football","Basketball","Athletics","Sports Technology"]
+  },
+  "media": {
+    title:"Media",
+    description:"Explore communication, digital media and storytelling.",
+    topics:["Film","Digital Media","Broadcasting","Content Creation"]
+  },
+  "law": {
+    title:"Law",
+    description:"Discover legal systems, research and justice.",
+    topics:["International Law","Civil Law","Human Rights","Legal Research"]
+  },
+  "history": {
+    title:"History",
+    description:"Explore civilizations, historical events and cultural heritage.",
+    topics:["Ancient History","World History","Archaeology","Cultural Heritage"]
+  },
+  "psychology": {
+    title:"Psychology",
+    description:"Explore human behavior, cognition and psychological research.",
+    topics:["Cognitive Psychology","Social Psychology","Developmental Psychology","Research"]
+  },
+  "architecture": {
+    title:"Architecture",
+    description:"Discover buildings, spaces and architectural ideas.",
+    topics:["Urban Architecture","Interior Design","Landscape Architecture","Sustainable Design"]
+  },
+  "agriculture": {
+    title:"Agriculture",
+    description:"Explore farming, food systems and agricultural innovation.",
+    topics:["Smart Farming","Agricultural Science","Crop Research","AgriTech"]
+  },
+  "finance": {
+    title:"Finance",
+    description:"Explore financial knowledge, planning and markets.",
+    topics:["Financial Literacy","Banking","Accounting","Financial Technology"]
+  },
+  "game-development": {
+    title:"Game Development",
+    description:"Discover how games are designed, developed and experienced.",
+    topics:["Game Design","Game Programming","3D Art","Game Audio"]
+  },
+  "photography": {
+    title:"Photography",
+    description:"Explore visual storytelling and photographic techniques.",
+    topics:["Portrait Photography","Nature Photography","Documentary Photography","Editing"]
+  },
+  "music": {
+    title:"Music",
+    description:"Discover music creation, performance and theory.",
+    topics:["Music Production","Composition","Music Theory","Sound Design"]
+  },
+  "literature": {
+    title:"Literature",
+    description:"Explore writing, reading and literary traditions.",
+    topics:["Creative Writing","Poetry","Fiction","Literary Studies"]
+  },
+  "geography": {
+    title:"Geography",
+    description:"Explore places, landscapes and human geography.",
+    topics:["Physical Geography","Human Geography","Cartography","GIS"]
+  },
+  "research": {
+    title:"Research",
+    description:"Connect ideas through investigation and discovery.",
+    topics:["Research Methods","Academic Writing","Data Analysis","Innovation"]
+  },
+  "languages": {
+    title:"Languages",
+    description:"Explore languages, linguistics and communication.",
+    topics:["Linguistics","Translation","Language Learning","Applied Linguistics"]
+  },
+  "automotive": {
+    title:"Automotive",
+    description:"Discover vehicle engineering and mobility innovation.",
+    topics:["Vehicle Design","Electric Vehicles","Automotive Engineering","Motorsport"]
+  },
+  "aerospace": {
+    title:"Aerospace",
+    description:"Explore aviation, aircraft and aerospace engineering.",
+    topics:["Aeronautics","Aircraft Design","Flight Systems","Spacecraft"]
+  },
+  "philosophy": {
+    title:"Philosophy",
+    description:"Explore ideas about knowledge, reality and ethics.",
+    topics:["Ethics","Logic","Metaphysics","Political Philosophy"]
+  },
+  "marketing": {
+    title:"Marketing",
+    description:"Discover branding, communication and market research.",
+    topics:["Digital Marketing","Brand Strategy","Market Research","Advertising"]
+  },
+  "energy": {
+    title:"Energy",
+    description:"Explore energy systems and sustainable technologies.",
+    topics:["Solar Energy","Wind Energy","Energy Storage","Power Systems"]
+  },
+  "journalism": {
+    title:"Journalism",
+    description:"Explore reporting, investigation and public information.",
+    topics:["Investigative Journalism","News Writing","Photojournalism","Media Ethics"]
+  },
+  "fashion": {
+    title:"Fashion",
+    description:"Discover clothing design, textiles and fashion innovation.",
+    topics:["Fashion Design","Textile Design","Fashion Business","Sustainable Fashion"]
+  },
+  "cybersecurity": {
+    title:"Cybersecurity",
+    description:"Explore digital security, privacy and responsible protection.",
+    topics:["Network Security","Digital Privacy","Security Research","Cryptography"]
+  },
+  "mathematics": {
+    title:"Mathematics",
+    description:"Discover mathematical ideas, patterns and applications.",
+    topics:["Algebra","Geometry","Statistics","Applied Mathematics"]
+  },
+  "biotechnology": {
+    title:"Biotechnology",
+    description:"Explore biology, technology and scientific innovation.",
+    topics:["Genetics","Bioinformatics","Cell Biology","Bioprocessing"]
+  },
+  "construction": {
+    title:"Construction",
+    description:"Discover building methods, materials and project planning.",
+    topics:["Construction Engineering","Building Materials","Project Management","Smart Buildings"]
+  },
+  "nutrition": {
+    title:"Nutrition",
+    description:"Explore food science and evidence-based nutrition education.",
+    topics:["Food Science","Nutritional Research","Food Technology","Public Nutrition"]
+  },
+  "tourism": {
+    title:"Tourism",
+    description:"Discover travel, destinations and tourism development.",
+    topics:["Ecotourism","Cultural Tourism","Hospitality","Tourism Management"]
+  },
+  "entrepreneurship": {
+    title:"Entrepreneurship",
+    description:"Turn ideas into projects through creativity and collaboration.",
+    topics:["Startup Ideas","Business Models","Innovation","Product Development"]
+  },
+  "space-science": {
+    title:"Space Science",
+    description:"Explore the universe, space missions and discoveries.",
+    topics:["Planetary Science","Astrophysics","Space Exploration","Space Technology"]
+  },
+  "economics": {
+    title:"Economics",
+    description:"Explore markets, economic systems and global development.",
+    topics:["Microeconomics","Macroeconomics","Development Economics","Economic Research"]
+  },
+  "product-design": {
+    title:"Product Design",
+    description:"Discover how useful products are imagined and developed.",
+    topics:["Industrial Design","UX Design","Prototyping","Product Research"]
+  },
+  "astronomy": {
+    title:"Astronomy",
+    description:"Explore stars, galaxies and the structure of the universe.",
+    topics:["Stars","Galaxies","Cosmology","Observational Astronomy"]
+  },
+  "robotics": {
+    title:"Robotics",
+    description:"Explore robots, automation and intelligent machines.",
+    topics:["Robot Design","Robot Programming","Automation","Control Systems"]
+  },
+  "web-development": {
+    title:"Web Development",
+    description:"Build useful and engaging experiences for the web.",
+    topics:["HTML & CSS","JavaScript","Frontend Development","Backend Development"]
+  },
+  "data-science": {
+    title:"Data Science",
+    description:"Turn data into insights through analysis and computation.",
+    topics:["Data Analysis","Data Visualization","Statistics","Machine Learning"]
+  },
+  "urban-planning": {
+    title:"Urban Planning",
+    description:"Explore cities, communities and better urban futures.",
+    topics:["City Design","Public Transport","Urban Sustainability","Smart Cities"]
+  }
+};
+
+const params = new URLSearchParams(location.search);
+const key = params.get("category") || "technology";
+const category = categories[key] || categories.technology;
+
+document.title = category.title + " | QAVELYNT";
+document.getElementById("heading").textContent = category.title;
+document.getElementById("description").textContent = category.description;
+
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
+
+function render() {
+  const query = search.value.toLowerCase();
+  grid.innerHTML = "";
+  category.topics
+    .filter(topic => topic.toLowerCase().includes(query))
+    .forEach(topic => {
+      const card = document.createElement("div");
+      card.className = "item";
+      const title = document.createElement("h3");
+      title.textContent = topic;
+      const description = document.createElement("p");
+      description.textContent = "Explore ideas, share knowledge and connect with others.";
+      card.append(title, description);
+      grid.appendChild(card);
+    });
+}
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+  </html>
