@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join QAVELYNT</title>
+<style>
+:root {
+--black:#100E0C;
+--dark:#191511;
+--brown:#60432F;
+--cream:#F1E8D8;
+--soft:#B9A58E;
+--line:#352A21;
+}
+*{box-sizing:border-box}
+body{
+margin:0;background:var(--black);color:var(--cream);
+font-family:Arial,sans-serif;padding:25px 14px;
+}
+.container{
+max-width:650px;margin:auto;background:var(--dark);
+border:1px solid var(--line);border-radius:18px;padding:30px 24px;
+}
+.logo{text-align:center;font-size:26px;font-weight:bold;letter-spacing:3px}
+.tagline{text-align:center;color:var(--soft);font-size:11px;margin-top:8px}
+h1{text-align:center;font-size:27px;margin-top:30px}
+.subtitle{text-align:center;color:var(--soft);font-size:13px;margin-bottom:25px}
+h2{font-size:16px;margin-top:30px;border-bottom:1px solid var(--line);padding-bottom:12px}
+label{display:block;font-size:12px;margin:14px 0 7px}
+input,select,textarea{
+width:100%;padding:13px;background:var(--black);
+color:var(--cream);border:1px solid var(--line);
+border-radius:8px;outline:none;font:inherit;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--soft)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.social{
+width:100%;padding:13px;margin:6px 0;
+border:1px solid var(--line);border-radius:8px;
+background:#211B16;color:var(--cream);cursor:pointer;
+}
+.social:hover{background:var(--brown)}
+.divider{display:flex;align-items:center;gap:12px;color:var(--soft);font-size:11px;margin:22px 0}
+.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
+.avatar{
+width:100px;height:100px;border-radius:50%;
+border:2px solid var(--soft);object-fit:cover;
+background:var(--brown);display:block;margin:15px auto;
+}
+.avatar-controls{display:flex;gap:8px;flex-wrap:wrap}
+.avatar-controls button{
+flex:1;min-width:90px;padding:10px;background:#211B16;
+border:1px solid var(--line);border-radius:7px;color:var(--cream);
+}
+.small{font-size:11px;color:var(--soft);line-height:1.7}
+.check{display:flex;gap:9px;align-items:center;margin-top:12px}
+.check input{width:auto}
+.submit{
+width:100%;padding:15px;margin-top:25px;background:var(--cream);
+color:var(--black);border:0;border-radius:9px;font-weight:bold;cursor:pointer;
+}
+a{color:var(--cream)}
+.back{display:block;text-align:center;margin-top:22px;color:var(--soft);text-decoration:none}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.container{padding:24px 17px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="logo">QAVELYNT</div>
+<div class="tagline">CONNECT IDEAS. BUILD TOMORROW.</div>
+
+<h1>Create your account</h1>
+<p class="subtitle">Your ideas deserve a place to grow.</p>
+
+<button class="social" type="button">Continue with Google</button>
+<button class="social" type="button">Continue with Apple</button>
+<button class="social" type="button">Continue with Facebook</button>
+
+<div class="divider">OR CREATE AN ACCOUNT</div>
+
+<form id="signupForm">
+
+<h2>Personal Information</h2>
+<div class="grid">
+<div>
+<label for="first">First Name</label>
+<input id="first" required placeholder="First name">
+</div>
+<div>
+<label for="last">Last Name</label>
+<input id="last" required placeholder="Last name">
+</div>
+</div>
+
+<label for="birth">Date of Birth</label>
+<input id="birth" type="date" required>
+
+<h2>Account Information</h2>
+
+<label for="username">Username</label>
+<input id="username" required minlength="3" placeholder="@username">
+
+<label for="display">Display Name / Nickname</label>
+<input id="display" placeholder="How people see you">
+
+<label for="email">Email Address</label>
+<input id="email" type="email" required placeholder="you@example.com">
+
+<label for="phone">Phone Number</label>
+<input id="phone" type="tel" placeholder="+...">
+
+<label for="password">Password</label>
+<input id="password" type="password" minlength="8" required placeholder="At least 8 characters">
+
+<label for="confirm">Confirm Password</label>
+<input id="confirm" type="password" required placeholder="Repeat your password">
+
+<h2>Profile Picture</h2>
+
+<img id="avatar" class="avatar" alt="Profile preview"
+src="https://placehold.co/200x200/60432F/F1E8D8?text=Q">
+
+<label for="photo">Choose from your device</label>
+<input id="photo" type="file" accept="image/*">
+
+<p class="small">You can adjust your profile picture after choosing it.</p>
+
+<div class="avatar-controls">
+<button type="button" onclick="setShape('50%')">Circle</button>
+<button type="button" onclick="setShape('18px')">Rounded</button>
+<button type="button" onclick="setShape('0')">Square</button>
+</div>
+
+<label for="borderColor">Frame Color</label>
+<input id="borderColor" type="color" value="#B9A58E">
+
+<label for="size">Picture Size</label>
+<input id="size" type="range" min="70" max="160" value="100">
+
+<h2>Interests & Skills</h2>
+
+<label for="field">Field of Study / Work</label>
+<input id="field" placeholder="e.g. Computer Science, Art, Business">
+
+<label for="interests">Areas of Interest</label>
+<textarea id="interests" rows="3" placeholder="Technology, Science, Design..."></textarea>
+
+<label for="skills">Your Skills</label>
+<textarea id="skills" rows="3" placeholder="Programming, Writing, Research..."></textarea>
+
+<div class="check">
+<input type="checkbox" id="terms" required>
+<label for="terms">I agree to the Terms of Service and Privacy Policy.</label>
+</div>
+
+<button class="submit" type="submit">Create Account</button>
+
+</form>
+
+<p class="small" style="text-align:center;margin-top:20px">
+Already have an account? <a href="login.html">Log in</a>
+</p>
+
+<a class="back" href="index.html">← Back to Home</a>
+
+<p class="small" style="text-align:center;margin-top:25px">
+QAVELYNT · CONNECT IDEAS. BUILD TOMORROW.
+</p>
+</div>
+
+<script>
+function setShape(shape){
+document.getElementById("avatar").style.borderRadius=shape;
+}
+
+document.getElementById("borderColor").addEventListener("input",function(){
+document.getElementById("avatar").style.borderColor=this.value;
+});
+
+document.getElementById("size").addEventListener("input",function(){
+let avatar=document.getElementById("avatar");
+avatar.style.width=this.value+"px";
+avatar.style.height=this.value+"px";
+});
+
+document.getElementById("photo").addEventListener("change",function(){
+if(this.files && this.files[0]){
+let reader=new FileReader();
+reader.onload=function(e){
+document.getElementById("avatar").src=e.target.result;
+};
+reader.readAsDataURL(this.files[0]);
+}
+});
+
+document.getElementById("signupForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+let password=document.getElementById("password").value;
+let confirm=document.getElementById("confirm").value;
+
+if(password!==confirm){
+alert("Passwords do not match!");
+return;
+}
+
+alert("Registration interface is ready! Real account creation will be enabled after backend setup.");
+});
+</script>
+</body>
+  </html>
