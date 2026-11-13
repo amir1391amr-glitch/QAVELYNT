@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="QAVELYNT is a platform for connecting ideas, skills and people to build tomorrow.">
-<title>QAVELYNT | Connect Ideas. Build Tomorrow.</title>
+<title>Login | QAVELYNT</title>
+
 <style>
-:root{
+:root {
   --black:#100E0C;
   --dark:#191511;
   --brown:#60432F;
@@ -15,429 +14,260 @@
   --soft:#B9A58E;
   --line:#352A21;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
+
+* {
+  box-sizing:border-box;
   margin:0;
+  padding:0;
+}
+
+body {
   background:var(--black);
   color:var(--cream);
   font-family:Arial,sans-serif;
-}
-a{color:inherit}
-header{
-  min-height:76px;
-  padding:18px 7%;
-  border-bottom:1px solid var(--line);
+  min-height:100vh;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  justify-content:center;
+  padding:25px;
 }
-.logo{
-  font-size:21px;
-  font-weight:bold;
+
+.container {
+  width:100%;
+  max-width:430px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:35px 28px;
+}
+
+.logo {
+  text-align:center;
+  font-size:27px;
+  font-weight:800;
   letter-spacing:3px;
-  text-decoration:none;
-  white-space:nowrap;
+  margin-bottom:8px;
 }
-.logo span{color:var(--soft)}
-nav{
-  display:flex;
-  align-items:center;
-  gap:23px;
-  flex-wrap:wrap;
-}
-nav a{
+
+.logo span {
   color:var(--soft);
-  text-decoration:none;
-  font-size:13px;
 }
-nav a:hover{color:var(--cream)}
-.join{
-  border:1px solid var(--brown);
-  padding:11px 17px;
-  color:var(--cream);
-}
-.hero{
-  width:min(1100px,86%);
-  margin:105px auto 100px;
-}
-.eyebrow{
+
+.subtitle {
+  text-align:center;
   color:var(--soft);
   font-size:12px;
-  letter-spacing:4px;
+  margin-bottom:32px;
 }
-h1{
-  font-size:clamp(42px,8vw,82px);
-  line-height:1.08;
-  margin:23px 0;
-  max-width:850px;
+
+h2 {
+  font-size:23px;
+  margin-bottom:8px;
 }
-.hero p{
+
+.description {
   color:var(--soft);
-  font-size:16px;
-  line-height:1.9;
-  max-width:600px;
+  font-size:13px;
+  margin-bottom:25px;
+  line-height:1.6;
 }
-.actions{
+
+label {
+  display:block;
+  font-size:13px;
+  margin-bottom:8px;
+  color:var(--cream);
+}
+
+input {
+  width:100%;
+  padding:14px;
+  background:var(--black);
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--cream);
+  outline:none;
+  margin-bottom:19px;
+  font-size:14px;
+}
+
+input:focus {
+  border-color:var(--soft);
+}
+
+.options {
   display:flex;
-  gap:13px;
-  flex-wrap:wrap;
-  margin-top:32px;
+  justify-content:flex-end;
+  margin-top:-7px;
+  margin-bottom:22px;
 }
-.btn{
-  display:inline-block;
-  padding:15px 23px;
+
+a {
+  color:var(--soft);
+  font-size:12px;
+  text-decoration:none;
+}
+
+a:hover {
+  color:var(--cream);
+}
+
+button {
+  width:100%;
+  padding:14px;
   background:var(--cream);
   color:var(--black);
-  text-decoration:none;
-  font-size:13px;
+  border:0;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover {
+  background:#dfd0ba;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--soft);
+  font-size:11px;
+  margin:23px 0;
+}
+
+.divider::before,
+.divider::after {
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
+}
+
+.social {
+  display:flex;
+  gap:10px;
+}
+
+.social button {
+  background:transparent;
+  color:var(--cream);
+  border:1px solid var(--line);
+  font-size:12px;
+  padding:12px 5px;
+}
+
+.social button:hover {
+  background:#241e18;
+}
+
+.footer {
+  text-align:center;
+  color:var(--soft);
+  font-size:12px;
+  margin-top:27px;
+}
+
+.footer a {
+  color:var(--cream);
   font-weight:bold;
 }
-.btn.secondary{
-  background:transparent;
-  border:1px solid var(--line);
-  color:var(--cream);
-}
-.section{
-  width:min(1100px,86%);
-  margin:90px auto;
-}
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:20px;
-  flex-wrap:wrap;
-}
-.section h2{
-  font-size:30px;
-  margin:12px 0;
-}
-.muted{
-  color:var(--soft);
-  line-height:1.8;
-  font-size:14px;
-}
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-top:30px;
-}
-.feature{
-  background:var(--dark);
-  border:1px solid var(--line);
-  padding:27px;
-}
-.feature h3{font-size:18px;margin:0 0 13px}
-.feature p{
-  color:var(--soft);
-  font-size:13px;
-  line-height:1.8;
-  margin:0;
-}
-.search{
-  width:100%;
-  margin-top:27px;
-  padding:17px;
-  background:var(--dark);
-  border:1px solid var(--line);
-  color:var(--cream);
-  font-size:14px;
-  outline:none;
-}
-.search:focus{border-color:var(--soft)}
-.search::placeholder{color:#8F7D6A}
-.categories{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:12px;
-  margin-top:20px;
-}
-.category{
+
+.back {
   display:block;
-  padding:20px;
-  background:var(--dark);
-  border:1px solid var(--line);
-  text-decoration:none;
-  transition:.2s;
-}
-.category:hover{
-  border-color:var(--soft);
-  transform:translateY(-3px);
-}
-.category strong{
-  display:block;
-  font-size:15px;
-  font-weight:600;
-}
-.category small{
-  display:block;
-  color:var(--soft);
-  margin-top:8px;
-  font-size:12px;
-}
-.empty{
-  display:none;
-  color:var(--soft);
-  padding:25px 0;
-  font-size:14px;
-}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-top:30px;
-}
-.step{
-  padding:25px;
-  border-top:1px solid var(--brown);
-  background:var(--dark);
-}
-.number{
-  color:var(--soft);
-  font-size:12px;
-  letter-spacing:2px;
-}
-.step h3{font-size:18px}
-.step p{
-  color:var(--soft);
-  font-size:13px;
-  line-height:1.8;
-}
-.cta{
-  background:var(--dark);
-  border:1px solid var(--line);
-  padding:55px 35px;
   text-align:center;
+  margin-top:23px;
 }
-.cta h2{font-size:32px}
-.cta p{
-  color:var(--soft);
-  line-height:1.8;
-}
-footer{
-  border-top:1px solid var(--line);
-  padding:35px 7%;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
-  color:var(--soft);
+
+.message {
   font-size:12px;
+  color:#d9b99a;
+  margin-top:14px;
+  text-align:center;
+  line-height:1.6;
 }
-footer a{
-  color:var(--soft);
-  text-decoration:none;
-}
-@media(max-width:650px){
-  header{align-items:flex-start;flex-direction:column}
-  nav{gap:15px}
-  .hero{margin:75px auto}
-  .section{margin:70px auto}
-  .cta{padding:38px 20px}
+
+@media(max-width:400px) {
+  .container {
+    padding:28px 20px;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<header>
-  <a class="logo" href="index.html">QAVE<span>LYNT</span></a>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#categories">Explore</a>
-    <a href="#how">How It Works</a>
-    <a href="#about">About</a>
-    <a class="join" href="#join">Join Now</a>
-  </nav>
-</header>
+<div class="container">
 
-<section class="hero" id="home">
-  <div class="eyebrow">A WORLD OF COLLABORATION</div>
-  <h1>Connect Ideas.<br>Build Tomorrow.</h1>
-  <p>
-    A place where people, skills and ideas come together.
-    Discover new fields, find collaborators and turn
-    possibilities into meaningful projects.
+  <div class="logo">QAVE<span>LYNT</span></div>
+  <div class="subtitle">CONNECT IDEAS. BUILD TOMORROW.</div>
+
+  <h2>Welcome Back</h2>
+  <p class="description">
+    Sign in to your account and continue building something meaningful.
   </p>
-  <div class="actions">
-    <a class="btn" href="#categories">Explore Fields</a>
-    <a class="btn secondary" href="#about">Discover QAVELYNT</a>
-  </div>
-</section>
 
-<section class="section" id="about">
-  <div class="eyebrow">WHY QAVELYNT</div>
-  <h2>Ideas grow together.</h2>
-  <p class="muted">
-    Great projects can begin with a simple idea.
-    QAVELYNT is designed to bring different skills,
-    interests and perspectives closer together.
-  </p>
-  <div class="features">
-    <article class="feature">
-      <h3>Discover</h3>
-      <p>Explore different fields and discover new interests and opportunities.</p>
-    </article>
-    <article class="feature">
-      <h3>Connect</h3>
-      <p>Find people with shared interests, knowledge and complementary skills.</p>
-    </article>
-    <article class="feature">
-      <h3>Collaborate</h3>
-      <p>Bring ideas together and work toward meaningful projects.</p>
-    </article>
-    <article class="feature">
-      <h3>Create</h3>
-      <p>Turn knowledge and creativity into something new.</p>
-    </article>
-  </div>
-</section>
+  <form id="loginForm">
 
-<section class="section" id="categories">
-  <div class="section-head">
-    <div>
-      <div class="eyebrow">EXPLORE YOUR WORLD</div>
-      <h2>Explore 45 Fields</h2>
-      <p class="muted">Find your field. Discover your next idea.</p>
+    <label for="email">Email or Username</label>
+    <input
+      type="text"
+      id="email"
+      placeholder="Enter your email or username"
+      autocomplete="username"
+      required
+    >
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      autocomplete="current-password"
+      required
+    >
+
+    <div class="options">
+      <a href="#" id="forgot">Forgot password?</a>
     </div>
+
+    <button type="submit">Sign In</button>
+
+    <p class="message" id="message"></p>
+
+  </form>
+
+  <div class="divider">OR CONTINUE WITH</div>
+
+  <div class="social">
+    <button type="button">Google</button>
+    <button type="button">Apple</button>
+    <button type="button">Facebook</button>
   </div>
 
-  <input
-    class="search"
-    id="categorySearch"
-    type="search"
-    placeholder="Search categories..."
-    aria-label="Search categories"
-  >
-
-  <div class="categories" id="categoryGrid">
-
-    <a class="category" data-slug="technology"><strong>Technology</strong><small>فناوری</small></a>
-    <a class="category"><strong>Artificial Intelligence</strong><small>هوش مصنوعی</small></a>
-    <a class="category"><strong>Science</strong><small>علوم</small></a>
-    <a class="category"><strong>Business</strong><small>کسب‌وکار</small></a>
-    <a class="category"><strong>Arts &amp; Design</strong><small>هنر و طراحی</small></a>
-    <a class="category"><strong>Education</strong><small>آموزش</small></a>
-    <a class="category"><strong>Health</strong><small>سلامت</small></a>
-    <a class="category"><strong>Engineering</strong><small>مهندسی</small></a>
-    <a class="category"><strong>Environment</strong><small>محیط زیست</small></a>
-    <a class="category"><strong>Sports</strong><small>ورزش</small></a>
-    <a class="category"><strong>Media</strong><small>رسانه</small></a>
-    <a class="category"><strong>Law</strong><small>حقوق</small></a>
-    <a class="category"><strong>History</strong><small>تاریخ</small></a>
-    <a class="category"><strong>Psychology</strong><small>روان‌شناسی</small></a>
-    <a class="category"><strong>Architecture</strong><small>معماری</small></a>
-    <a class="category"><strong>Agriculture</strong><small>کشاورزی</small></a>
-    <a class="category"><strong>Finance</strong><small>امور مالی</small></a>
-    <a class="category"><strong>Game Development</strong><small>بازی‌سازی</small></a>
-    <a class="category"><strong>Photography</strong><small>عکاسی</small></a>
-    <a class="category"><strong>Music</strong><small>موسیقی</small></a>
-    <a class="category"><strong>Literature</strong><small>ادبیات</small></a>
-    <a class="category"><strong>Geography</strong><small>جغرافیا</small></a>
-    <a class="category"><strong>Research</strong><small>پژوهش</small></a>
-    <a class="category"><strong>Languages</strong><small>زبان‌ها</small></a>
-    <a class="category"><strong>Automotive</strong><small>خودرو</small></a>
-    <a class="category"><strong>Aerospace</strong><small>هوافضا</small></a>
-    <a class="category"><strong>Philosophy</strong><small>فلسفه</small></a>
-    <a class="category"><strong>Marketing</strong><small>بازاریابی</small></a>
-    <a class="category"><strong>Energy</strong><small>انرژی</small></a>
-    <a class="category"><strong>Journalism</strong><small>روزنامه‌نگاری</small></a>
-    <a class="category"><strong>Fashion</strong><small>مد و پوشاک</small></a>
-    <a class="category"><strong>Cybersecurity</strong><small>امنیت سایبری</small></a>
-    <a class="category"><strong>Mathematics</strong><small>ریاضیات</small></a>
-    <a class="category"><strong>Biotechnology</strong><small>زیست‌فناوری</small></a>
-    <a class="category"><strong>Construction</strong><small>ساخت‌وساز</small></a>
-    <a class="category"><strong>Nutrition</strong><small>تغذیه</small></a>
-    <a class="category"><strong>Tourism</strong><small>گردشگری</small></a>
-    <a class="category"><strong>Entrepreneurship</strong><small>کارآفرینی</small></a>
-    <a class="category"><strong>Space Science</strong><small>علوم فضایی</small></a>
-    <a class="category"><strong>Economics</strong><small>اقتصاد</small></a>
-    <a class="category"><strong>Product Design</strong><small>طراحی محصول</small></a>
-    <a class="category"><strong>Astronomy</strong><small>ستاره‌شناسی</small></a>
-    <a class="category"><strong>Robotics</strong><small>رباتیک</small></a>
-    <a class="category"><strong>Web Development</strong><small>توسعه وب</small></a>
-    <a class="category"><strong>Data Science</strong><small>علم داده</small></a>
-    <a class="category"><strong>Urban Planning</strong><small>برنامه‌ریزی شهری</small></a>
-
+  <div class="footer">
+    Don't have an account?
+    <a href="signup.html">Create Account</a>
   </div>
-  <p class="empty" id="noResults">No matching categories found.</p>
-</section>
 
-<section class="section" id="how">
-  <div class="eyebrow">HOW IT WORKS</div>
-  <h2>From idea to collaboration.</h2>
-  <div class="steps">
-    <article class="step">
-      <div class="number">01 / EXPLORE</div>
-      <h3>Choose a Field</h3>
-      <p>Discover a subject that matches your interests.</p>
-    </article>
-    <article class="step">
-      <div class="number">02 / DISCOVER</div>
-      <h3>Find Ideas</h3>
-      <p>Explore topics, opportunities and new perspectives.</p>
-    </article>
-    <article class="step">
-      <div class="number">03 / CREATE</div>
-      <h3>Build Together</h3>
-      <p>Bring skills and ideas together to create projects.</p>
-    </article>
-  </div>
-</section>
+  <a class="back" href="index.html">← Back to Home</a>
 
-<section class="section" id="join">
-  <div class="cta">
-    <div class="eyebrow">YOUR NEXT IDEA STARTS HERE</div>
-    <h2>Think beyond boundaries.</h2>
-    <p>Explore new fields. Connect ideas. Build tomorrow.</p>
-    <a class="btn" href="#categories">Explore QAVELYNT</a>
-  </div>
-</section>
-
-<footer>
-  <a class="logo" href="index.html">QAVE<span>LYNT</span></a>
-  <span>QAVELYNT · Connect Ideas. Build Tomorrow.</span>
-</footer>
+</div>
 
 <script>
-const cards = document.querySelectorAll(".category");
-const search = document.getElementById("categorySearch");
-const noResults = document.getElementById("noResults");
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-function makeSlug(name){
-  return name.toLowerCase()
-    .replace(/&/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-cards.forEach(card => {
-  const title = card.querySelector("strong").textContent.trim();
-  const slug = card.dataset.slug || makeSlug(title);
-
-  if(slug === "technology"){
-    card.href = "technology.html";
-  }else{
-    card.href = "category.html?category=" + encodeURIComponent(slug);
-  }
+  document.getElementById("message").textContent =
+    "Login system is not connected yet. Secure account authentication will be added with the backend.";
 });
 
-search.addEventListener("input", function(){
-  const query = this.value.trim().toLowerCase();
-  let visible = 0;
+document.getElementById("forgot").addEventListener("click", function(e) {
+  e.preventDefault();
 
-  cards.forEach(card => {
-    const title = card.querySelector("strong").textContent.toLowerCase();
-    const subtitle = card.querySelector("small").textContent.toLowerCase();
-    const match = title.includes(query) || subtitle.includes(query);
-
-    card.style.display = match ? "block" : "none";
-    if(match) visible++;
-  });
-
-  noResults.style.display = visible === 0 ? "block" : "none";
+  document.getElementById("message").textContent =
+    "Password recovery will be available after secure account setup.";
 });
 </script>
 
