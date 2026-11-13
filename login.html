@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | QAVELYNT</title>
+
+<style>
+:root {
+  --black:#100E0C;
+  --dark:#191511;
+  --brown:#60432F;
+  --cream:#F1E8D8;
+  --soft:#B9A58E;
+  --line:#352A21;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  background:var(--black);
+  color:var(--cream);
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+
+.container {
+  width:100%;
+  max-width:430px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:35px 28px;
+}
+
+.logo {
+  text-align:center;
+  font-size:27px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.logo span {
+  color:var(--soft);
+}
+
+.subtitle {
+  text-align:center;
+  color:var(--soft);
+  font-size:12px;
+  margin-bottom:32px;
+}
+
+h2 {
+  font-size:23px;
+  margin-bottom:8px;
+}
+
+.description {
+  color:var(--soft);
+  font-size:13px;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+label {
+  display:block;
+  font-size:13px;
+  margin-bottom:8px;
+  color:var(--cream);
+}
+
+input {
+  width:100%;
+  padding:14px;
+  background:var(--black);
+  border:1px solid var(--line);
+  border-radius:9px;
+  color:var(--cream);
+  outline:none;
+  margin-bottom:19px;
+  font-size:14px;
+}
+
+input:focus {
+  border-color:var(--soft);
+}
+
+.options {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:-7px;
+  margin-bottom:22px;
+}
+
+a {
+  color:var(--soft);
+  font-size:12px;
+  text-decoration:none;
+}
+
+a:hover {
+  color:var(--cream);
+}
+
+button {
+  width:100%;
+  padding:14px;
+  background:var(--cream);
+  color:var(--black);
+  border:0;
+  border-radius:9px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover {
+  background:#dfd0ba;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--soft);
+  font-size:11px;
+  margin:23px 0;
+}
+
+.divider::before,
+.divider::after {
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--line);
+}
+
+.social {
+  display:flex;
+  gap:10px;
+}
+
+.social button {
+  background:transparent;
+  color:var(--cream);
+  border:1px solid var(--line);
+  font-size:12px;
+  padding:12px 5px;
+}
+
+.social button:hover {
+  background:#241e18;
+}
+
+.footer {
+  text-align:center;
+  color:var(--soft);
+  font-size:12px;
+  margin-top:27px;
+}
+
+.footer a {
+  color:var(--cream);
+  font-weight:bold;
+}
+
+.back {
+  display:block;
+  text-align:center;
+  margin-top:23px;
+}
+
+.message {
+  font-size:12px;
+  color:#d9b99a;
+  margin-top:14px;
+  text-align:center;
+  line-height:1.6;
+}
+
+@media(max-width:400px) {
+  .container {
+    padding:28px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">QAVE<span>LYNT</span></div>
+  <div class="subtitle">CONNECT IDEAS. BUILD TOMORROW.</div>
+
+  <h2>Welcome Back</h2>
+  <p class="description">
+    Sign in to your account and continue building something meaningful.
+  </p>
+
+  <form id="loginForm">
+
+    <label for="email">Email or Username</label>
+    <input
+      type="text"
+      id="email"
+      placeholder="Enter your email or username"
+      autocomplete="username"
+      required
+    >
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      autocomplete="current-password"
+      required
+    >
+
+    <div class="options">
+      <a href="#" id="forgot">Forgot password?</a>
+    </div>
+
+    <button type="submit">Sign In</button>
+
+    <p class="message" id="message"></p>
+
+  </form>
+
+  <div class="divider">OR CONTINUE WITH</div>
+
+  <div class="social">
+    <button type="button">Google</button>
+    <button type="button">Apple</button>
+    <button type="button">Facebook</button>
+  </div>
+
+  <div class="footer">
+    Don't have an account?
+    <a href="signup.html">Create Account</a>
+  </div>
+
+  <a class="back" href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  document.getElementById("message").textContent =
+    "Login system is not connected yet. Secure account authentication will be added with the backend.";
+});
+
+document.getElementById("forgot").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  document.getElementById("message").textContent =
+    "Password recovery will be available after secure account setup.";
+});
+</script>
+
+</body>
+</html>
