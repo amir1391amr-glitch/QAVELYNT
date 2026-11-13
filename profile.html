@@ -3,212 +3,241 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QAVELYNT | Avatar Studio</title>
 <style>
-:root{--black:#100E0C;--dark:#191511;--brown:#60432F;--cream:#F1E8D8;--soft:#B9A58E;--line:#352A21}
+:root{
+ --bg:#100E0C;--panel:#191511;--cream:#F1E8D8;
+ --soft:#B9A58E;--brown:#60432F;--line:#352A21;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--black);color:var(--cream);font-family:Arial,sans-serif}
-header{padding:20px 6%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:bold;letter-spacing:2px}
-.logo span{color:var(--soft)}
-a{color:var(--soft);text-decoration:none}
-main{width:92%;max-width:1050px;margin:35px auto}
-.panel{background:var(--dark);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:20px}
-.profile{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-#preview{width:100px;height:100px;border-radius:50%;overflow:hidden;border:3px solid var(--soft);background:#DCCBB3}
-#preview svg{width:100%;height:100%;display:block}
-h1{font-size:24px;margin:0}
-h2{font-size:19px;margin:0 0 8px}
-.muted{color:var(--soft);font-size:13px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
-.filters button,.action{background:#211A15;color:var(--cream);border:1px solid var(--line);padding:10px 14px;border-radius:9px;cursor:pointer}
-.filters button.active,.action.primary{background:var(--brown);border-color:var(--soft)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.avatar{border:2px solid transparent;background:#211A15;border-radius:12px;padding:9px 4px;color:var(--cream);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
-.avatar.selected{border-color:var(--cream);background:#30251D}
-.avatar svg{width:65px;height:65px;display:block;border-radius:50%}
-.avatar span{font-size:11px;color:var(--soft);text-align:center}
-.actions{display:flex;gap:10px;margin-top:20px}
-@media(min-width:650px){.grid{grid-template-columns:repeat(8,1fr)}}
+body{
+ margin:0;background:var(--bg);color:var(--cream);
+ font-family:Arial,sans-serif;padding:25px 16px 50px;
+}
+main{max-width:1000px;margin:auto}
+header{text-align:center;margin:20px 0 30px}
+.logo{font-size:24px;letter-spacing:5px;font-weight:bold}
+header p{color:var(--soft);font-size:13px}
+h1{font-size:25px;margin:28px 0 8px}
+.sub{color:var(--soft);font-size:13px}
+.preview{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:18px;padding:20px;text-align:center;margin:25px 0;
+}
+.preview img{width:110px;height:110px;object-fit:contain}
+.preview p{color:var(--soft);font-size:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0}
+.tabs button{
+ background:var(--panel);color:var(--cream);
+ border:1px solid var(--line);padding:11px 15px;
+ border-radius:10px;cursor:pointer
+}
+.tabs button.active{background:var(--cream);color:var(--bg)}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));
+ gap:12px;
+}
+.avatar{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:15px;padding:12px 7px 9px;
+ cursor:pointer;text-align:center;transition:.2s;
+}
+.avatar:hover{border-color:var(--soft);transform:translateY(-2px)}
+.avatar.selected{border:2px solid var(--cream);background:#292017}
+.avatar img{width:78px;height:78px;display:block;margin:auto}
+.avatar span{display:block;font-size:11px;color:var(--soft);margin-top:7px}
+.actions{display:flex;justify-content:center;gap:10px;margin-top:25px}
+.actions button{
+ padding:12px 22px;border-radius:10px;border:0;
+ cursor:pointer;font-weight:bold
+}
+.save{background:var(--cream);color:var(--bg)}
+.reset{background:var(--panel);color:var(--cream);border:1px solid var(--line)!important}
+#message{text-align:center;color:var(--soft);font-size:12px;margin-top:15px}
 </style>
 </head>
 <body>
+<main>
 <header>
-<div class="logo">QAVE<span>LYNT</span></div>
-<a href="index.html">Home</a>
+ <div class="logo">QAVELYNT</div>
+ <p>CONNECT IDEAS. BUILD TOMORROW.</p>
+ <h1>Avatar Studio</h1>
+ <div class="sub">آواتار اختصاصی خودت را انتخاب کن</div>
 </header>
 
-<main>
-<section class="panel">
-<div class="profile">
-<div id="preview"></div>
-<div>
-<h1>Avatar Studio</h1>
-<p class="muted">Choose your identity.</p>
-<p class="muted" id="chosenName">Choose an avatar below</p>
-</div>
-</div>
+<section class="preview">
+ <img id="preview" alt="Selected avatar">
+ <div id="selectedName">یک آواتار انتخاب کن</div>
+ <p>پیش‌نمایش تصویر پروفایل</p>
 </section>
 
-<section class="panel">
-<h2>Avatar Collection</h2>
-<p class="muted">100 original vector avatars. Find your style.</p>
-<div class="filters" id="filters"></div>
-<div class="grid" id="grid"></div>
+<nav class="tabs" id="tabs">
+ <button class="active" data-cat="people">انسان‌ها</button>
+ <button data-cat="animals">حیوانات</button>
+ <button data-cat="plants">گیاهان</button>
+ <button data-cat="fantasy">فانتزی</button>
+ <button data-cat="all">همه</button>
+</nav>
+
+<section class="grid" id="grid"></section>
+
 <div class="actions">
-<button class="action primary" onclick="saveAvatar()">Save Avatar</button>
-<button class="action" onclick="resetAvatar()">Reset</button>
+ <button class="save" id="save">ذخیره انتخاب</button>
+ <button class="reset" id="reset">لغو انتخاب</button>
 </div>
-<p class="muted" id="message"></p>
-</section>
+<div id="message"></div>
 </main>
 
 <script>
-const groups=[
-{name:"People",type:"person",names:["Artist","Explorer","Student","Thinker","Dreamer","Creator","Reader","Traveler","Leader","Scientist","Designer","Musician","Athlete","Writer","Inventor","Scholar","Adventurer","Builder","Friend","Visionary"]},
-{name:"Animals",type:"animal",names:["Fox","Cat","Dog","Bear","Panda","Tiger","Lion","Rabbit","Owl","Wolf","Koala","Frog","Deer","Penguin","Monkey","Turtle","Raccoon","Elephant","Lamb","Dolphin"]},
-{name:"Space",type:"space",names:["Cosmonaut","Alien","Robot","Moon Explorer","Star Being","Space Pilot","Android","Saturn Friend","Comet","Galaxy Spirit"]},
-{name:"Plants",type:"plant",names:["Rose","Sunflower","Tulip","Daisy","Cactus","Fern","Orchid","Lotus","Oak","Olive","Ivy","Lavender","Palm","Mushroom","Sprout"]},
-{name:"Food & Veggies",type:"food",names:["Tomato","Carrot","Avocado","Strawberry","Lemon","Peach","Pumpkin","Broccoli","Chili","Pear","Corn","Eggplant","Apple","Mushroom","Watermelon"]},
-{name:"Professions",type:"job",names:["Doctor","Engineer","Chef","Pilot","Teacher","Astronomer","Architect","Farmer","Artist","Mechanic","Photographer","Researcher","Firefighter","Musician","Programmer","Gardener","Scientist","Builder","Athlete","Designer"]}
-];
-
 const palettes=[
-["#E8CDB0","#A86E4B","#42332D"],
-["#C9D9CB","#527968","#263F38"],
-["#D8C8E6","#846A9D","#44364F"],
-["#E9D7A9","#B88742","#493827"],
-["#C5D9E8","#587F9B","#30485A"],
-["#E8C5C3","#B66D72","#57383B"],
-["#D6D0B8","#85805D","#403E30"],
-["#D8C6AE","#89664D","#47382D"]
+ ['#E8C9A7','#60432F','#B98257'],
+ ['#D9B99B','#49382F','#9C7051'],
+ ['#EEDCC5','#70513D','#C18B61'],
+ ['#C9A98D','#382C26','#8D6248'],
+ ['#F0D7B8','#76523B','#B77A52'],
+ ['#D6B89A','#554136','#A77C5C'],
+ ['#E7CDB2','#49372D','#C08A64'],
+ ['#DCC1A5','#60442F','#A8734E']
 ];
 
-function art(type,i){
-const p=palettes[i%palettes.length],bg=p[0],main=p[1],dark=p[2];
-const skin=["#F1C9A5","#D99F78","#B97855","#8B5943","#E5B995"][i%5];
-const hair=["#352923","#6A4934","#25252B","#B47A48","#4A343A"][i%5];
-let s="";
-
-if(type==="person"||type==="job"){
-s=`
-<path d="M9 64Q10 43 32 42Q54 43 55 64" fill="${main}"/>
-<path d="M18 25Q15 5 32 5Q51 5 47 28L44 40Q32 52 20 40Z" fill="${hair}"/>
-<ellipse cx="32" cy="29" rx="15" ry="18" fill="${skin}"/>
-<path d="M17 24Q17 7 32 7Q48 7 47 25Q40 15 31 17Q23 17 17 24" fill="${hair}"/>
-<circle cx="26" cy="29" r="1.7" fill="${dark}"/>
-<circle cx="38" cy="29" r="1.7" fill="${dark}"/>
-<path d="M28 37Q32 40 36 37" fill="none" stroke="#965F51" stroke-width="1.7" stroke-linecap="round"/>`;
-if(type==="job"){
-s+=`<path d="M20 46H44L40 55H24Z" fill="${bg}"/>`;
-if(i%4===0)s+=`<path d="M20 27Q32 13 44 27" fill="none" stroke="#F1E8D8" stroke-width="5"/>`;
-if(i%4===1)s+=`<circle cx="32" cy="19" r="12" fill="none" stroke="#F1E8D8" stroke-width="3"/>`;
-if(i%4===2)s+=`<path d="M22 46L32 54L42 46" fill="none" stroke="#F1E8D8" stroke-width="3"/>`;
-if(i%4===3)s+=`<path d="M19 20H45L41 29H23Z" fill="#F1E8D8"/>`;
-}
-}
-if(type==="animal"){
-const ears=i%3===0?`<path d="M15 22L8 7L25 16M49 22L56 7L39 16" fill="${main}" stroke="${dark}" stroke-width="2"/>`:`<path d="M15 22Q8 8 22 15M49 22Q56 8 42 15" fill="${main}"/>`;
-s=`
-${ears}
-<ellipse cx="32" cy="34" rx="23" ry="22" fill="${main}"/>
-<ellipse cx="32" cy="40" rx="14" ry="10" fill="${bg}"/>
-<circle cx="24" cy="31" r="2" fill="${dark}"/>
-<circle cx="40" cy="31" r="2" fill="${dark}"/>
-<path d="M29 38L32 40L35 38" fill="${dark}"/>
-<path d="M12 64Q13 51 32 51Q51 51 52 64" fill="${main}"/>`;
-}
-if(type==="space"){
-s=`
-<path d="M8 17L13 8L17 17L26 20L17 23L13 32L9 23L2 20Z" fill="#E9D7A9"/>
-<circle cx="32" cy="33" r="23" fill="${main}"/>
-<ellipse cx="32" cy="35" rx="16" ry="11" fill="${bg}"/>
-<ellipse cx="25" cy="34" rx="3" ry="4" fill="${dark}"/>
-<ellipse cx="39" cy="34" rx="3" ry="4" fill="${dark}"/>
-<path d="M27 42Q32 46 37 42" fill="none" stroke="${dark}" stroke-width="2"/>
-<circle cx="53" cy="14" r="4" fill="#E9D7A9"/>`;
-}
-if(type==="plant"){
-if(i%2===0){
-s=`
-<path d="M32 40V62M32 52Q10 38 14 25Q31 29 32 52M32 48Q53 31 51 20Q35 25 32 48" fill="${main}" stroke="#527968" stroke-width="2"/>
-<circle cx="32" cy="23" r="7" fill="#E9D7A9"/>
-<circle cx="32" cy="12" r="8" fill="${main}"/>
-<circle cx="43" cy="22" r="8" fill="${main}"/>
-<circle cx="21" cy="22" r="8" fill="${main}"/>`;
-}else{
-s=`<path d="M32 61V23" stroke="#527968" stroke-width="5"/>
-<path d="M32 40Q7 38 15 18Q32 19 32 40M32 32Q54 27 49 10Q33 13 32 32" fill="${main}" stroke="#527968" stroke-width="2"/>
-<path d="M20 62H44" stroke="${dark}" stroke-width="4" stroke-linecap="round"/>`;
-}
-}
-if(type==="food"){
-const shapes=[
-`<circle cx="32" cy="34" r="22" fill="${main}"/><path d="M32 12V5M28 9Q36 1 42 8" fill="none" stroke="#527968" stroke-width="4"/>`,
-`<path d="M32 10Q57 25 32 59Q7 25 32 10" fill="${main}"/><path d="M32 12L30 5" stroke="#527968" stroke-width="4"/>`,
-`<path d="M32 10Q55 10 51 36Q48 58 32 59Q16 58 13 36Q9 10 32 10" fill="${main}"/><path d="M32 12Q32 2 42 3" stroke="#527968" stroke-width="4" fill="none"/>`
+const people=[
+'آرمان','رها','آراد','آوا','سام','نورا','پارسا','نیلا','ماهان','هانا'
 ];
-s=shapes[i%3]+`<circle cx="24" cy="32" r="2" fill="${dark}"/><circle cx="40" cy="32" r="2" fill="${dark}"/><path d="M27 42Q32 46 37 42" fill="none" stroke="${dark}" stroke-width="2"/>`;
+const animals=[
+'روباه','گربه','شیر','خرگوش','خرس','گوزن','جغد','پاندا','گرگ','پرنده'
+];
+const plants=[
+'رز','آفتابگردان','کاکتوس','لاله','برگ استوایی','قارچ','بونسای','نیلوفر','سرخس','درخت'
+];
+const fantasy=[
+'فضانورد','ماه‌نشین','جادوگر','اژدها','ستاره','نگهبان','روح جنگل','سیاره','ققنوس','شوالیه'
+];
+
+function svg(content,bg='#F1E8D8'){
+return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+<rect width="120" height="120" rx="28" fill="${bg}"/>
+${content}</svg>`;
 }
-return `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="${bg}"/>${s}</svg>`;
+function person(i){
+let p=palettes[i%8],female=i%2===1;
+let hair=female?
+`<path d="M27 57 Q20 12 61 16 Q103 15 94 62 L89 92 Q75 108 79 62 L39 62 L39 96 Q20 93 27 57" fill="${p[1]}"/>`:
+`<path d="M29 49 Q26 13 61 17 Q96 14 91 50 Q76 31 48 37 Q36 41 29 49" fill="${p[1]}"/>`;
+return svg(`
+<path d="M15 120 Q17 82 60 81 Q103 82 105 120" fill="${p[2]}"/>
+<path d="M48 79 L48 94 L60 103 L72 94 L72 79" fill="${p[0]}"/>
+${hair}
+<ellipse cx="60" cy="57" rx="29" ry="35" fill="${p[0]}"/>
+<path d="M43 57 Q48 52 53 57 M67 57 Q73 52 78 57" fill="none" stroke="${p[1]}" stroke-width="3" stroke-linecap="round"/>
+<path d="M54 70 Q60 75 67 70" fill="none" stroke="${p[2]}" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M31 47 Q25 65 32 83 M89 47 Q95 65 88 83" fill="none" stroke="${p[1]}" stroke-width="5" stroke-linecap="round"/>
+<circle cx="49" cy="58" r="2" fill="${p[1]}"/><circle cx="72" cy="58" r="2" fill="${p[1]}"/>
+`);
+}
+function animal(i){
+let p=palettes[i%8];
+let ears=[
+'<path d="M35 42 L27 12 L51 31 M69 31 L93 12 L85 45" />',
+'<path d="M30 43 Q9 9 39 23 M81 43 Q111 9 81 23"/>',
+'<path d="M27 48 L20 14 L48 34 M73 34 L100 14 L93 48"/>',
+'<path d="M32 40 L28 10 L50 33 M70 33 L92 10 L88 40"/>'
+][i%4];
+return svg(`
+<g fill="${p[1]}" stroke="${p[1]}" stroke-width="5" stroke-linejoin="round">${ears}</g>
+<ellipse cx="60" cy="65" rx="37" ry="35" fill="${p[0]}"/>
+<ellipse cx="46" cy="62" rx="4" ry="5" fill="${p[1]}"/>
+<ellipse cx="74" cy="62" rx="4" ry="5" fill="${p[1]}"/>
+<ellipse cx="60" cy="75" rx="10" ry="7" fill="${p[2]}"/>
+<path d="M56 78 Q60 84 64 78" fill="none" stroke="${p[1]}" stroke-width="2"/>
+<circle cx="60" cy="74" r="3" fill="${p[1]}"/>
+<path d="M28 95 Q60 110 92 95" fill="none" stroke="${p[2]}" stroke-width="5" stroke-linecap="round"/>
+`);
+}
+function plant(i){
+let p=palettes[i%8];
+let leaves='';
+for(let j=0;j<5;j++){
+let x=60+(j-2)*13;
+leaves+=`<ellipse cx="${x}" cy="${57-Math.abs(j-2)*5}" rx="11" ry="25" transform="rotate(${(j-2)*25} ${x} 57)" fill="${j%2?p[2]:p[1]}"/>`;
+}
+let flower=i%3===0;
+return svg(`
+<path d="M60 109 Q58 78 60 53" stroke="${p[1]}" stroke-width="5" fill="none"/>
+${flower?`
+${Array.from({length:8},(_,j)=>`<ellipse cx="60" cy="35" rx="9" ry="18" transform="rotate(${j*45} 60 35)" fill="${p[2]}"/>`).join('')}
+<circle cx="60" cy="35" r="10" fill="${p[0]}"/>`:leaves}
+<path d="M60 83 Q35 58 28 78 Q42 97 60 83 M60 91 Q82 64 94 81 Q82 103 60 91" fill="${p[2]}"/>
+<path d="M35 111 Q60 104 85 111" stroke="${p[1]}" stroke-width="4" fill="none" stroke-linecap="round"/>
+`);
+}
+function fantasyAvatar(i){
+let p=palettes[i%8];
+let shapes=[
+`<circle cx="60" cy="56" r="31" fill="${p[1]}"/><circle cx="60" cy="56" r="24" fill="${p[0]}"/><path d="M45 48 L52 56 L45 64 M75 48 L68 56 L75 64" stroke="${p[2]}" stroke-width="4" fill="none"/>`,
+`<circle cx="60" cy="57" r="33" fill="${p[0]}"/><path d="M29 45 Q60 5 91 45" fill="none" stroke="${p[1]}" stroke-width="9"/><circle cx="60" cy="56" r="9" fill="${p[2]}"/>`,
+`<path d="M60 15 L72 45 L104 55 L72 67 L60 101 L48 67 L16 55 L48 45Z" fill="${p[2]}"/><circle cx="60" cy="55" r="13" fill="${p[0]}"/>`,
+`<path d="M60 13 Q78 38 95 53 Q86 91 60 105 Q34 91 25 53Z" fill="${p[1]}"/><path d="M60 27 L78 57 L60 85 L42 57Z" fill="${p[0]}"/>`
+];
+return svg(shapes[i%4]);
 }
 
-const all=[];
-groups.forEach((g,gi)=>g.names.forEach((name,i)=>{
-all.push({name,group:g.name,type:g.type,index:i,id:all.length});
-}));
-
-let selected=localStorage.getItem("qavelynt-avatar-id");
-selected=selected===null?0:Number(selected);
-if(!all[selected])selected=0;
-
-const grid=document.getElementById("grid");
-const filters=document.getElementById("filters");
-
-function showFilters(){
-["All",...groups.map(g=>g.name)].forEach((name,i)=>{
-const b=document.createElement("button");
-b.textContent=name;
-if(i===0)b.classList.add("active");
-b.onclick=()=>{
-filters.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
-showAvatars(name);
+const groups={
+ people,animals,plants,fantasy
 };
-filters.appendChild(b);
+const renderers={
+ people:person,animals:animal,plants:plant,fantasy:fantasyAvatar
+};
+let selected=null;
+let current='people';
+const grid=document.getElementById('grid');
+
+function render(){
+grid.innerHTML='';
+Object.keys(groups).forEach(cat=>{
+if(current!=='all'&&current!==cat)return;
+groups[cat].forEach((name,i)=>{
+const id=cat+'-'+i;
+const card=document.createElement('div');
+card.className='avatar'+(selected===id?' selected':'');
+const img=document.createElement('img');
+img.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(renderers[cat](i));
+img.alt=name;
+const label=document.createElement('span');
+label.textContent=name;
+card.append(img,label);
+card.onclick=()=>{
+selected=id;
+document.getElementById('preview').src=img.src;
+document.getElementById('selectedName').textContent=name;
+document.getElementById('message').textContent='';
+render();
+};
+grid.append(card);
+});
 });
 }
-function choose(a){
-selected=a.id;
-document.getElementById("preview").innerHTML=art(a.type,a.index);
-document.getElementById("chosenName").textContent=a.name+" · "+a.group;
-showAvatars(filters.querySelector(".active")?.textContent||"All");
-}
-function showAvatars(category){
-grid.innerHTML="";
-all.filter(a=>category==="All"||a.group===category).forEach(a=>{
-const b=document.createElement("button");
-b.className="avatar"+(selected===a.id?" selected":"");
-b.innerHTML=art(a.type,a.index)+`<span>${a.name}</span>`;
-b.onclick=()=>choose(a);
-grid.appendChild(b);
+document.querySelectorAll('.tabs button').forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+current=btn.dataset.cat;
+render();
+};
 });
-}
-function saveAvatar(){
-localStorage.setItem("qavelynt-avatar-id",String(selected));
-document.getElementById("message").textContent="Avatar saved on this device.";
-}
-function resetAvatar(){
-selected=0;
-choose(all[0]);
-localStorage.removeItem("qavelynt-avatar-id");
-document.getElementById("message").textContent="Avatar reset.";
-}
-showFilters();
-document.getElementById("preview").innerHTML=art(all[selected].type,all[selected].index);
-document.getElementById("chosenName").textContent=all[selected].name+" · "+all[selected].group;
-showAvatars("All");
+document.getElementById('save').onclick=()=>{
+if(!selected){document.getElementById('message').textContent='اول یک آواتار انتخاب کن.';return;}
+localStorage.setItem('qavelynt-avatar-id',selected);
+document.getElementById('message').textContent='انتخابت در همین مرورگر ذخیره شد.';
+};
+document.getElementById('reset').onclick=()=>{
+selected=null;
+document.getElementById('preview').removeAttribute('src');
+document.getElementById('selectedName').textContent='یک آواتار انتخاب کن';
+document.getElementById('message').textContent='انتخاب لغو شد.';
+render();
+};
+render();
 </script>
 </body>
 </html>
