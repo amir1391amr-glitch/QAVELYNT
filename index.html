@@ -1,313 +1,792 @@
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0a16">
-  <meta name="description" content="ساینکس؛ شبکه‌ای برای همکاری، یادگیری و ساختن آینده‌ای بهتر.">
-  <title>Synex | با هم، فراتر از مرزها</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="QAVELYNT connects people, knowledge and ideas to build tomorrow.">
+<title>QAVELYNT | Connect Ideas. Build Tomorrow.</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+:root {
+  --black:#050505;
+  --panel:#101214;
+  --panel2:#15191c;
+  --blue:#087DCE;
+  --green:#24D66B;
+  --white:#F4F7F8;
+  --muted:#929DA3;
+  --border:#22282C;
+}
 
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: #0b0a16;
-      color: #f8f7ff;
-      line-height: 1.9;
-    }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+html {
+  scroll-behavior:smooth;
+  background:#050505;
+}
 
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
+body {
+  background:#050505 !important;
+  background-image:none !important;
+  color:var(--white);
+  font-family:Arial, sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-    header {
-      border-bottom: 1px solid #28243d;
-      padding: 18px 0;
-    }
+body::before,
+body::after {
+  content:none !important;
+  display:none !important;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
+a {
+  color:inherit;
+  text-decoration:none;
+}
 
-    .logo {
-      font-size: 27px;
-      font-weight: bold;
-      color: #a78bfa;
-      letter-spacing: 1px;
-    }
+button,input {
+  font:inherit;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      font-size: 14px;
-      color: #c8c3dc;
-    }
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
 
-    .hero {
-      text-align: center;
-      padding: 85px 10px 65px;
-    }
+/* HEADER */
 
-    .tag {
-      display: inline-block;
-      color: #c4b5fd;
-      background: #21183d;
-      border: 1px solid #49357b;
-      padding: 5px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#050505;
+  border-bottom:1px solid #20272B;
+}
 
-    h1 {
-      font-size: clamp(30px, 6vw, 52px);
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
+.nav {
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
 
-    .highlight {
-      color: #9b7aff;
-    }
+.brand {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
 
-    .hero p {
-      color: #aaa5bc;
-      max-width: 650px;
-      margin: 0 auto 30px;
-      font-size: 16px;
-    }
+.brand span {
+  background:linear-gradient(90deg,#fff 55%,#24D66B 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-    .button {
-      display: inline-block;
-      background: linear-gradient(110deg, #7446ed, #9b68ff);
-      color: white;
-      padding: 12px 27px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
+.logo {
+  width:45px;
+  height:45px;
+}
 
-    .button:hover {
-      transform: translateY(-3px);
-    }
+.navlinks {
+  display:flex;
+  gap:26px;
+  font-size:14px;
+  color:#D0D7DA;
+}
 
-    .features {
-      padding: 45px 0 75px;
-    }
+.navlinks a:hover {
+  color:var(--green);
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 27px;
-      margin-bottom: 35px;
-    }
+.nav-actions {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+.signin {
+  border:1px solid #39454B;
+  border-radius:25px;
+  padding:8px 17px;
+  font-size:13px;
+}
 
-    .card {
-      background: #151326;
-      border: 1px solid #302849;
-      padding: 25px 18px;
-      border-radius: 18px;
-      transition: 0.2s;
-    }
+.join {
+  background:linear-gradient(100deg,var(--green),var(--blue));
+  color:#04100A;
+  border-radius:25px;
+  padding:9px 19px;
+  font-weight:bold;
+  font-size:13px;
+}
 
-    .card:hover {
-      border-color: #8863f5;
-      transform: translateY(-4px);
-    }
+/* HERO */
 
-    .icon {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+.hero {
+  min-height:440px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:30px;
+  padding:65px 0;
+}
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 18px;
-    }
+.eyebrow {
+  color:var(--green);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:bold;
+}
 
-    .card p {
-      color: #aaa5bc;
-      font-size: 14px;
-    }
+.hero h1 {
+  font-size:clamp(42px,7vw,76px);
+  line-height:1.08;
+  margin:18px 0;
+  letter-spacing:-2px;
+}
 
-    .cta {
-      text-align: center;
-      background: #17122a;
-      border: 1px solid #38265e;
-      padding: 40px 20px;
-      border-radius: 22px;
-      margin-bottom: 65px;
-    }
+.gradient {
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-    .cta p {
-      color: #aaa5bc;
-      margin: 10px 0 22px;
-    }
+.hero p {
+  color:#AEB9BE;
+  max-width:510px;
+  font-size:16px;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #28243d;
-      color: #89839e;
-      font-size: 13px;
-    }
+.actions {
+  display:flex;
+  gap:13px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
 
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
+.btn {
+  display:inline-block;
+  padding:12px 23px;
+  border-radius:28px;
+  background:linear-gradient(100deg,var(--green),var(--blue));
+  color:#031009;
+  font-weight:bold;
+  font-size:14px;
+  border:0;
+  cursor:pointer;
+}
 
-      .hero {
-        padding-top: 60px;
-      }
+.btn-outline {
+  border:1px solid #43515A;
+  background:transparent;
+  color:white;
+}
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+.hero-art {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:290px;
+}
 
-      .card {
-        padding: 22px;
-      }
-    }
-  </style>
+.hero-logo {
+  width:min(290px,85%);
+  height:auto;
+  filter:drop-shadow(0 0 25px #087DCE40);
+}
+
+/* FEATURE CARDS */
+
+.features {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin:0 0 75px;
+}
+
+.feature {
+  background:#101214;
+  border:1px solid #22282C;
+  padding:20px;
+  border-radius:13px;
+  transition:.25s;
+}
+
+.feature:hover {
+  border-color:#087DCE;
+  transform:translateY(-4px);
+}
+
+.feature-icon {
+  font-size:26px;
+  margin-bottom:9px;
+}
+
+.feature h3 {
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.feature p {
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* SECTIONS */
+
+.section {
+  padding:25px 0 75px;
+}
+
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:25px;
+}
+
+.section h2 {
+  font-size:29px;
+}
+
+.subtitle {
+  font-size:13px;
+  color:var(--muted);
+}
+
+.search {
+  width:min(320px,100%);
+  padding:12px 17px;
+  border-radius:25px;
+  border:1px solid #303A40;
+  background:#101214;
+  color:white;
+  outline:none;
+}
+
+.search:focus {
+  border-color:var(--green);
+}
+
+/* CATEGORIES */
+
+.categories {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.category {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-height:83px;
+  padding:15px;
+  background:#101214;
+  border:1px solid #22282C;
+  border-radius:12px;
+  transition:.22s;
+}
+
+.category:hover {
+  background:#121B19;
+  border-color:var(--green);
+  transform:translateY(-3px);
+}
+
+.category-icon {
+  width:37px;
+  font-size:25px;
+  text-align:center;
+  flex-shrink:0;
+}
+
+.category strong {
+  display:block;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.category small {
+  display:block;
+  color:#87949A;
+  font-size:11px;
+}
+
+.no-results {
+  color:var(--muted);
+  margin-top:20px;
+}
+
+/* STEPS */
+
+.steps {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:24px;
+}
+
+.step {
+  background:#101214;
+  border:1px solid #22282C;
+  border-radius:13px;
+  padding:23px;
+}
+
+.step-number {
+  color:var(--green);
+  font-size:26px;
+  font-weight:bold;
+}
+
+.step h3 {
+  margin:9px 0;
+}
+
+.step p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* CTA */
+
+.cta {
+  margin:10px 0 70px;
+  padding:32px;
+  border:1px solid #174A45;
+  border-radius:15px;
+  background:#0B1513;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.cta h2 {
+  font-size:25px;
+}
+
+/* FOOTER */
+
+footer {
+  background:#050505;
+  border-top:1px solid #22282C;
+  padding:30px 0;
+}
+
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-name {
+  font-size:19px;
+  font-weight:bold;
+}
+
+.footer-links {
+  display:flex;
+  gap:17px;
+  flex-wrap:wrap;
+  color:#A2ADB2;
+  font-size:12px;
+}
+
+.footer-links a:hover {
+  color:var(--green);
+}
+
+.copyright {
+  color:#77838A;
+  font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+  .navlinks {
+    gap:13px;
+    font-size:12px;
+  }
+
+  .categories {
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .features {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px) {
+  .nav {
+    min-height:65px;
+  }
+
+  .brand {
+    font-size:18px;
+  }
+
+  .logo {
+    width:38px;
+    height:38px;
+  }
+
+  .navlinks {
+    display:none;
+  }
+
+  .hero {
+    grid-template-columns:1fr;
+    padding:45px 0 25px;
+  }
+
+  .hero-art {
+    min-height:180px;
+  }
+
+  .hero-logo {
+    width:170px;
+  }
+
+  .categories {
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+  }
+
+  .category {
+    padding:11px;
+    gap:7px;
+  }
+
+  .category strong {
+    font-size:12px;
+  }
+
+  .category small {
+    font-size:10px;
+  }
+
+  .category-icon {
+    font-size:21px;
+    width:29px;
+  }
+
+  .steps {
+    grid-template-columns:1fr;
+  }
+
+  .section h2 {
+    font-size:24px;
+  }
+
+  .features {
+    gap:9px;
+  }
+
+  .feature {
+    padding:14px;
+  }
+
+  .cta {
+    padding:23px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="container">
-      <nav>
-        <a class="logo" href="#">✦ Synex</a>
+<header>
+<div class="container nav">
 
-        <div class="nav-links">
-          <a href="#">خانه</a>
-          <a href="#features">امکانات</a>
-          <a href="#about">درباره ما</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<a href="#" class="brand">
+<svg class="logo" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#24D66B"/>
+<stop offset="100%" stop-color="#087DCE"/>
+</linearGradient>
+</defs>
+<path d="M72 22 A37 37 0 1 0 76 68"
+fill="none" stroke="url(#logoGradient)"
+stroke-width="12" stroke-linecap="round"/>
+<path d="M48 53 L86 88"
+stroke="#087DCE" stroke-width="13"
+stroke-linecap="round"/>
+<path d="M29 49 L43 63 L69 34"
+fill="none" stroke="#24D66B"
+stroke-width="7" stroke-linecap="round"
+stroke-linejoin="round"/>
+</svg>
+<span>QAVELYNT</span>
+</a>
 
-  <main>
-    <section class="hero container">
-      <span class="tag">شبکه همکاری و هم‌افزایی</span>
+<nav class="navlinks">
+<a href="#">Home</a>
+<a href="#categories">Explore</a>
+<a href="#steps">Collaborate</a>
+<a href="#features">About</a>
+</nav>
 
-      <h1>
-        ایده‌های بزرگ با
-        <span class="highlight">همکاری</span>
-        ساخته می‌شوند.
-      </h1>
+<div class="nav-actions">
+<a href="#join" class="signin">Sign In</a>
+<a href="#join" class="join">Join Now</a>
+</div>
 
-      <p>
-        ساینکس بستری برای ارتباط افراد با مهارت‌ها،
-        علایق و ایده‌های متفاوت است.
-        اینجا می‌توانیم از یکدیگر یاد بگیریم،
-        تیم بسازیم و ایده‌هایمان را به واقعیت تبدیل کنیم.
-      </p>
+</div>
+</header>
 
-      <a class="button" href="#features">
-        کشف دنیای ساینکس ←
-      </a>
-    </section>
+<main>
 
-    <section class="features container" id="features">
-      <h2 class="section-title">در ساینکس چه کار می‌کنیم؟</h2>
+<section class="container hero">
 
-      <div class="cards">
+<div>
+<div class="eyebrow">CONNECT · COLLABORATE · GROW</div>
 
-        <article class="card">
-          <div class="icon">🤝</div>
-          <h3>همکاری</h3>
-          <p>
-            افرادی با تخصص‌های متفاوت پیدا کن
-            و برای رسیدن به یک هدف مشترک همکاری کن.
-          </p>
-        </article>
+<h1>
+Connect Ideas.<br>
+<span class="gradient">Build Tomorrow.</span>
+</h1>
 
-        <article class="card">
-          <div class="icon">💡</div>
-          <h3>ایده‌پردازی</h3>
-          <p>
-            ایده‌هایت را مطرح کن و با کمک
-            دیگران آن‌ها را گسترش بده.
-          </p>
-        </article>
+<p>
+A global platform where people, knowledge and creativity
+come together to discover opportunities, build projects
+and create a better future.
+</p>
 
-        <article class="card">
-          <div class="icon">🚀</div>
-          <h3>ساخت پروژه</h3>
-          <p>
-            یک تیم تشکیل بده و ایده‌هایت را
-            به پروژه‌های واقعی تبدیل کن.
-          </p>
-        </article>
+<div class="actions">
+<a href="#categories" class="btn">Explore Fields →</a>
+<a href="#features" class="btn btn-outline">Discover More</a>
+</div>
+</div>
 
-        <article class="card">
-          <div class="icon">📚</div>
-          <h3>یادگیری</h3>
-          <p>
-            دانش و تجربه‌ات را با دیگران
-            به اشتراک بگذار.
-          </p>
-        </article>
+<div class="hero-art">
+<svg class="hero-logo" viewBox="0 0 100 100">
+<defs>
+<linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#24D66B"/>
+<stop offset="100%" stop-color="#087DCE"/>
+</linearGradient>
+</defs>
+<path d="M72 22 A37 37 0 1 0 76 68"
+fill="none" stroke="url(#heroGradient)"
+stroke-width="11" stroke-linecap="round"/>
+<path d="M48 53 L86 88"
+stroke="#087DCE" stroke-width="12"
+stroke-linecap="round"/>
+<path d="M29 49 L43 63 L69 34"
+fill="none" stroke="#24D66B"
+stroke-width="7" stroke-linecap="round"
+stroke-linejoin="round"/>
+</svg>
+</div>
 
-        <article class="card">
-          <div class="icon">🧠</div>
-          <h3>هوش هوشمند</h3>
-          <p>
-            در آینده افراد و مهارت‌های مرتبط
-            با پروژه‌ها را هوشمندانه پیدا کن.
-          </p>
-        </article>
+</section>
 
-        <article class="card">
-          <div class="icon">🌍</div>
-          <h3>جامعه آزاد</h3>
-          <p>
-            از علم و هنر تا فناوری و کسب‌وکار؛
-            همه می‌توانند سهمی داشته باشند.
-          </p>
-        </article>
+<section class="container features" id="features">
 
-      </div>
-    </section>
+<div class="feature">
+<div class="feature-icon">🌐</div>
+<h3>Global Community</h3>
+<p>ارتباط با افراد از سراسر جهان</p>
+</div>
 
-    <section class="container" id="about">
-      <div class="cta">
-        <h2>آینده را با هم می‌سازیم.</h2>
-        <p>
-          هر مهارتی ارزشمند است و هر ایده‌ای
-          می‌تواند نقطه شروع یک اتفاق بزرگ باشد.
-        </p>
-        <a class="button" href="#features">
-          به دنیای Synex خوش آمدی
-        </a>
-      </div>
-    </section>
-  </main>
+<div class="feature">
+<div class="feature-icon">🤝</div>
+<h3>Smart Collaboration</h3>
+<p>همکاری هوشمند و هدفمند</p>
+</div>
 
-  <footer>
-    © 2026 Synex | با هم، فراتر از مرزها
-  </footer>
+<div class="feature">
+<div class="feature-icon">🚀</div>
+<h3>Project Building</h3>
+<p>تبدیل ایده‌ها به پروژه</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💡</div>
+<h3>Knowledge Sharing</h3>
+<p>اشتراک دانش و تجربه</p>
+</div>
+
+</section>
+
+<section class="container section" id="categories">
+
+<div class="section-head">
+<div>
+<div class="eyebrow">DISCOVER YOUR WORLD</div>
+<h2>Explore Categories</h2>
+<p class="subtitle">Discover your interests. Find your community.</p>
+</div>
+
+<input id="search" class="search"
+type="search" placeholder="Search categories...">
+</div>
+
+<div class="categories" id="categoryGrid">
+
+<a class="category"><span class="category-icon">💻</span><span><strong>Technology</strong><small>فناوری</small></span></a>
+<a class="category"><span class="category-icon">🔬</span><span><strong>Science</strong><small>علوم</small></span></a>
+<a class="category"><span class="category-icon">📊</span><span><strong>Business</strong><small>کسب‌وکار</small></span></a>
+<a class="category"><span class="category-icon">🎨</span><span><strong>Arts & Design</strong><small>هنر و طراحی</small></span></a>
+
+<a class="category"><span class="category-icon">🎓</span><span><strong>Education</strong><small>آموزش</small></span></a>
+<a class="category"><span class="category-icon">🩺</span><span><strong>Health</strong><small>سلامت</small></span></a>
+<a class="category"><span class="category-icon">⚙️</span><span><strong>Engineering</strong><small>مهندسی</small></span></a>
+<a class="category"><span class="category-icon">🌱</span><span><strong>Environment</strong><small>محیط زیست</small></span></a>
+
+<a class="category"><span class="category-icon">🏆</span><span><strong>Sports</strong><small>ورزش</small></span></a>
+<a class="category"><span class="category-icon">🎬</span><span><strong>Media</strong><small>رسانه</small></span></a>
+<a class="category"><span class="category-icon">⚖️</span><span><strong>Law</strong><small>حقوق</small></span></a>
+<a class="category"><span class="category-icon">🏛️</span><span><strong>History</strong><small>تاریخ</small></span></a>
+
+<a class="category"><span class="category-icon">🧠</span><span><strong>Psychology</strong><small>روان‌شناسی</small></span></a>
+<a class="category"><span class="category-icon">📐</span><span><strong>Architecture</strong><small>معماری</small></span></a>
+<a class="category"><span class="category-icon">🌾</span><span><strong>Agriculture</strong><small>کشاورزی</small></span></a>
+<a class="category"><span class="category-icon">💰</span><span><strong>Finance</strong><small>امور مالی</small></span></a>
+
+<a class="category"><span class="category-icon">🎮</span><span><strong>Game Development</strong><small>بازی‌سازی</small></span></a>
+<a class="category"><span class="category-icon">🤖</span><span><strong>Artificial Intelligence</strong><small>هوش مصنوعی</small></span></a>
+<a class="category"><span class="category-icon">📷</span><span><strong>Photography</strong><small>عکاسی</small></span></a>
+<a class="category"><span class="category-icon">🎵</span><span><strong>Music</strong><small>موسیقی</small></span></a>
+
+<a class="category"><span class="category-icon">📚</span><span><strong>Literature</strong><small>ادبیات</small></span></a>
+<a class="category"><span class="category-icon">🌍</span><span><strong>Geography</strong><small>جغرافیا</small></span></a>
+<a class="category"><span class="category-icon">🧪</span><span><strong>Research</strong><small>پژوهش</small></span></a>
+<a class="category"><span class="category-icon">🗣️</span><span><strong>Languages</strong><small>زبان‌ها</small></span></a>
+
+<a class="category"><span class="category-icon">🚗</span><span><strong>Automotive</strong><small>خودرو</small></span></a>
+<a class="category"><span class="category-icon">✈️</span><span><strong>Aerospace</strong><small>هوافضا</small></span></a>
+<a class="category"><span class="category-icon">🧩</span><span><strong>Philosophy</strong><small>فلسفه</small></span></a>
+<a class="category"><span class="category-icon">🏙️</span><span><strong>Urban Planning</strong><small>برنامه‌ریزی شهری</small></span></a>
+
+<a class="category"><span class="category-icon">🛍️</span><span><strong>Marketing</strong><small>بازاریابی</small></span></a>
+<a class="category"><span class="category-icon">🔋</span><span><strong>Energy</strong><small>انرژی</small></span></a>
+<a class="category"><span class="category-icon">📰</span><span><strong>Journalism</strong><small>روزنامه‌نگاری</small></span></a>
+<a class="category"><span class="category-icon">🧵</span><span><strong>Fashion</strong><small>مد و پوشاک</small></span></a>
+
+<a class="category"><span class="category-icon">🔐</span><span><strong>Cybersecurity</strong><small>امنیت سایبری</small></span></a>
+<a class="category"><span class="category-icon">🧮</span><span><strong>Mathematics</strong><small>ریاضیات</small></span></a>
+<a class="category"><span class="category-icon">🧬</span><span><strong>Biotechnology</strong><small>زیست‌فناوری</small></span></a>
+<a class="category"><span class="category-icon">🏗️</span><span><strong>Construction</strong><small>ساختمان‌سازی</small></span></a>
+
+<a class="category"><span class="category-icon">🍎</span><span><strong>Nutrition</strong><small>تغذیه</small></span></a>
+<a class="category"><span class="category-icon">🧭</span><span><strong>Tourism</strong><small>گردشگری</small></span></a>
+<a class="category"><span class="category-icon">🪴</span><span><strong>Gardening</strong><small>باغبانی</small></span></a>
+<a class="category"><span class="category-icon">🧑‍💼</span><span><strong>Entrepreneurship</strong><small>کارآفرینی</small></span></a>
+
+<a class="category"><span class="category-icon">🛰️</span><span><strong>Space Science</strong><small>علوم فضایی</small></span></a>
+<a class="category"><span class="category-icon">🏦</span><span><strong>Economics</strong><small>اقتصاد</small></span></a>
+<a class="category"><span class="category-icon">🧱</span><span><strong>Product Design</strong><small>طراحی محصول</small></span></a>
+<a class="category"><span class="category-icon">🔭</span><span><strong>Astronomy</strong><small>نجوم</small></span></a>
+
+</div>
+
+<p id="noResults" class="no-results" hidden>
+No categories found. / حوزه‌ای پیدا نشد.
+</p>
+
+</section>
+
+<section class="container section" id="steps">
+
+<div class="eyebrow">YOUR JOURNEY STARTS HERE</div>
+<h2>How It Works</h2>
+<p class="subtitle">سه مرحله برای شروع یک همکاری تازه</p>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3>Discover</h3>
+<p>حوزه‌ها و افراد مورد علاقه‌ات را پیدا کن.</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Connect</h3>
+<p>با افراد هم‌فکر و متخصص ارتباط برقرار کن.</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3>Create</h3>
+<p>ایده‌هایتان را به پروژه‌های واقعی تبدیل کنید.</p>
+</div>
+
+</div>
+</section>
+
+<section class="container cta" id="join">
+<div>
+<h2>Build Something Meaningful.</h2>
+<p class="subtitle">Connect Ideas. Build Tomorrow.</p>
+</div>
+<a href="#categories" class="btn">Explore QAVELYNT →</a>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-inner">
+<div>
+<div class="footer-name">QAVELYNT</div>
+<p class="subtitle">Connect Ideas. Build Tomorrow.</p>
+</div>
+
+<div class="footer-links">
+<a href="#features">About</a>
+<a href="#categories">Explore</a>
+<a href="#steps">Collaborate</a>
+<a href="#join">Contact</a>
+</div>
+
+<div class="copyright">
+© 2026 QAVELYNT. All rights reserved.
+</div>
+</div>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const cards = [...document.querySelectorAll(".category")];
+const noResults = document.getElementById("noResults");
+
+search.addEventListener("input", () => {
+  const term = search.value.trim().toLowerCase();
+  let count = 0;
+
+  cards.forEach(card => {
+    const match = card.textContent.toLowerCase().includes(term);
+    card.style.display = match ? "flex" : "none";
+    if (match) count++;
+  });
+
+  noResults.hidden = count !== 0;
+});
+</script>
 
 </body>
 </html>
