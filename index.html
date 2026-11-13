@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0a16">
+  <meta name="description" content="ساینکس؛ شبکه‌ای برای همکاری، یادگیری و ساختن آینده‌ای بهتر.">
+  <title>Synex | با هم، فراتر از مرزها</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #0b0a16;
+      color: #f8f7ff;
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #28243d;
+      padding: 18px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: bold;
+      color: #a78bfa;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: #c8c3dc;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 85px 10px 65px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #c4b5fd;
+      background: #21183d;
+      border: 1px solid #49357b;
+      padding: 5px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 6vw, 52px);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      color: #9b7aff;
+    }
+
+    .hero p {
+      color: #aaa5bc;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(110deg, #7446ed, #9b68ff);
+      color: white;
+      padding: 12px 27px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .features {
+      padding: 45px 0 75px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 27px;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #151326;
+      border: 1px solid #302849;
+      padding: 25px 18px;
+      border-radius: 18px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: #8863f5;
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: #aaa5bc;
+      font-size: 14px;
+    }
+
+    .cta {
+      text-align: center;
+      background: #17122a;
+      border: 1px solid #38265e;
+      padding: 40px 20px;
+      border-radius: 22px;
+      margin-bottom: 65px;
+    }
+
+    .cta p {
+      color: #aaa5bc;
+      margin: 10px 0 22px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #28243d;
+      color: #89839e;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#">✦ Synex</a>
+
+        <div class="nav-links">
+          <a href="#">خانه</a>
+          <a href="#features">امکانات</a>
+          <a href="#about">درباره ما</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <span class="tag">شبکه همکاری و هم‌افزایی</span>
+
+      <h1>
+        ایده‌های بزرگ با
+        <span class="highlight">همکاری</span>
+        ساخته می‌شوند.
+      </h1>
+
+      <p>
+        ساینکس بستری برای ارتباط افراد با مهارت‌ها،
+        علایق و ایده‌های متفاوت است.
+        اینجا می‌توانیم از یکدیگر یاد بگیریم،
+        تیم بسازیم و ایده‌هایمان را به واقعیت تبدیل کنیم.
+      </p>
+
+      <a class="button" href="#features">
+        کشف دنیای ساینکس ←
+      </a>
+    </section>
+
+    <section class="features container" id="features">
+      <h2 class="section-title">در ساینکس چه کار می‌کنیم؟</h2>
+
+      <div class="cards">
+
+        <article class="card">
+          <div class="icon">🤝</div>
+          <h3>همکاری</h3>
+          <p>
+            افرادی با تخصص‌های متفاوت پیدا کن
+            و برای رسیدن به یک هدف مشترک همکاری کن.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">💡</div>
+          <h3>ایده‌پردازی</h3>
+          <p>
+            ایده‌هایت را مطرح کن و با کمک
+            دیگران آن‌ها را گسترش بده.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🚀</div>
+          <h3>ساخت پروژه</h3>
+          <p>
+            یک تیم تشکیل بده و ایده‌هایت را
+            به پروژه‌های واقعی تبدیل کن.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">📚</div>
+          <h3>یادگیری</h3>
+          <p>
+            دانش و تجربه‌ات را با دیگران
+            به اشتراک بگذار.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>هوش هوشمند</h3>
+          <p>
+            در آینده افراد و مهارت‌های مرتبط
+            با پروژه‌ها را هوشمندانه پیدا کن.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌍</div>
+          <h3>جامعه آزاد</h3>
+          <p>
+            از علم و هنر تا فناوری و کسب‌وکار؛
+            همه می‌توانند سهمی داشته باشند.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="cta">
+        <h2>آینده را با هم می‌سازیم.</h2>
+        <p>
+          هر مهارتی ارزشمند است و هر ایده‌ای
+          می‌تواند نقطه شروع یک اتفاق بزرگ باشد.
+        </p>
+        <a class="button" href="#features">
+          به دنیای Synex خوش آمدی
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Synex | با هم، فراتر از مرزها
+  </footer>
+
+</body>
+</html>
