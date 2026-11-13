@@ -4,789 +4,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
-<meta name="description" content="QAVELYNT connects people, knowledge and ideas to build tomorrow.">
 <title>QAVELYNT | Connect Ideas. Build Tomorrow.</title>
-
 <style>
-:root {
+:root{
   --black:#050505;
   --panel:#101214;
-  --panel2:#15191c;
   --blue:#087DCE;
   --green:#24D66B;
   --white:#F4F7F8;
-  --muted:#929DA3;
-  --border:#22282C;
+  --muted:#92999F;
 }
-
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html {
-  scroll-behavior:smooth;
-  background:#050505;
-}
-
-body {
-  background:#050505 !important;
-  background-image:none !important;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
   color:var(--white);
-  font-family:Arial, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   line-height:1.6;
-  overflow-x:hidden;
 }
-
-body::before,
-body::after {
-  content:none !important;
-  display:none !important;
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-button,input {
-  font:inherit;
-}
-
-.container {
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-/* HEADER */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#050505;
-  border-bottom:1px solid #20272B;
-}
-
-.nav {
-  min-height:76px;
+a{color:inherit;text-decoration:none}
+header{
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  padding:0 7%;
+  border-bottom:1px solid #202326;
+  background:#050505;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-size:23px;
-  font-weight:800;
-  letter-spacing:1.5px;
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:30px;height:30px;flex-shrink:0}
+.brand-name{font-size:19px;font-weight:800;letter-spacing:1.5px}
+nav{display:flex;gap:25px;color:#c3c8cc;font-size:13px}
+nav a:hover{color:var(--green)}
+.header-btn{
+  border:1px solid var(--blue);
+  padding:9px 17px;
+  border-radius:5px;
+  font-size:12px;
 }
-
-.brand span {
-  background:linear-gradient(90deg,#fff 55%,#24D66B 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.hero{
+  text-align:center;
+  padding:115px 20px 105px;
+  background:#050505;
 }
-
-.logo {
-  width:45px;
-  height:45px;
-}
-
-.navlinks {
-  display:flex;
-  gap:26px;
-  font-size:14px;
-  color:#D0D7DA;
-}
-
-.navlinks a:hover {
-  color:var(--green);
-}
-
-.nav-actions {
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.signin {
-  border:1px solid #39454B;
-  border-radius:25px;
-  padding:8px 17px;
-  font-size:13px;
-}
-
-.join {
-  background:linear-gradient(100deg,var(--green),var(--blue));
-  color:#04100A;
-  border-radius:25px;
-  padding:9px 19px;
-  font-weight:bold;
-  font-size:13px;
-}
-
-/* HERO */
-
-.hero {
-  min-height:440px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:30px;
-  padding:65px 0;
-}
-
-.eyebrow {
+.eyebrow{
   color:var(--green);
   font-size:12px;
   letter-spacing:3px;
-  font-weight:bold;
+  margin-bottom:20px;
 }
-
-.hero h1 {
-  font-size:clamp(42px,7vw,76px);
-  line-height:1.08;
-  margin:18px 0;
+h1{
+  font-size:clamp(38px,7vw,68px);
+  line-height:1.12;
+  max-width:850px;
+  margin:auto;
   letter-spacing:-2px;
 }
-
-.gradient {
-  background:linear-gradient(90deg,var(--green),var(--blue));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero p {
-  color:#AEB9BE;
-  max-width:510px;
-  font-size:16px;
-}
-
-.actions {
-  display:flex;
-  gap:13px;
-  margin-top:28px;
-  flex-wrap:wrap;
-}
-
-.btn {
-  display:inline-block;
-  padding:12px 23px;
-  border-radius:28px;
-  background:linear-gradient(100deg,var(--green),var(--blue));
-  color:#031009;
-  font-weight:bold;
-  font-size:14px;
-  border:0;
-  cursor:pointer;
-}
-
-.btn-outline {
-  border:1px solid #43515A;
-  background:transparent;
-  color:white;
-}
-
-.hero-art {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:290px;
-}
-
-.hero-logo {
-  width:min(290px,85%);
-  height:auto;
-  filter:drop-shadow(0 0 25px #087DCE40);
-}
-
-/* FEATURE CARDS */
-
-.features {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  margin:0 0 75px;
-}
-
-.feature {
-  background:#101214;
-  border:1px solid #22282C;
-  padding:20px;
-  border-radius:13px;
-  transition:.25s;
-}
-
-.feature:hover {
-  border-color:#087DCE;
-  transform:translateY(-4px);
-}
-
-.feature-icon {
-  font-size:26px;
-  margin-bottom:9px;
-}
-
-.feature h3 {
+h1 span{color:var(--blue)}
+.hero p{
+  max-width:590px;
+  margin:24px auto;
+  color:var(--muted);
   font-size:15px;
-  margin-bottom:5px;
 }
-
-.feature p {
-  color:var(--muted);
-  font-size:12px;
-}
-
-/* SECTIONS */
-
-.section {
-  padding:25px 0 75px;
-}
-
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  flex-wrap:wrap;
-  gap:18px;
-  margin-bottom:25px;
-}
-
-.section h2 {
-  font-size:29px;
-}
-
-.subtitle {
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  padding:13px 23px;
+  border-radius:5px;
   font-size:13px;
-  color:var(--muted);
+  font-weight:bold;
 }
-
-.search {
-  width:min(320px,100%);
-  padding:12px 17px;
-  border-radius:25px;
-  border:1px solid #303A40;
-  background:#101214;
-  color:white;
-  outline:none;
-}
-
-.search:focus {
-  border-color:var(--green);
-}
-
-/* CATEGORIES */
-
-.categories {
+.primary{background:var(--blue);color:white}
+.secondary{border:1px solid #343a3f}
+section{padding:75px 7%}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head h2{font-size:30px;margin-bottom:8px}
+.section-head p{font-size:14px;color:var(--muted)}
+.features{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:13px;
-}
-
-.category {
-  display:flex;
-  align-items:center;
-  gap:13px;
-  min-height:83px;
-  padding:15px;
-  background:#101214;
-  border:1px solid #22282C;
-  border-radius:12px;
-  transition:.22s;
-}
-
-.category:hover {
-  background:#121B19;
-  border-color:var(--green);
-  transform:translateY(-3px);
-}
-
-.category-icon {
-  width:37px;
-  font-size:25px;
-  text-align:center;
-  flex-shrink:0;
-}
-
-.category strong {
-  display:block;
-  font-size:14px;
-  line-height:1.5;
-}
-
-.category small {
-  display:block;
-  color:#87949A;
-  font-size:11px;
-}
-
-.no-results {
-  color:var(--muted);
-  margin-top:20px;
-}
-
-/* STEPS */
-
-.steps {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
   gap:15px;
-  margin-top:24px;
 }
-
-.step {
-  background:#101214;
-  border:1px solid #22282C;
-  border-radius:13px;
+.feature,.category,.step{
+  background:var(--panel);
+  border:1px solid #202326;
+  border-radius:8px;
   padding:23px;
 }
-
-.step-number {
+.feature-mark{
   color:var(--green);
-  font-size:26px;
-  font-weight:bold;
+  font-size:22px;
+  margin-bottom:13px;
 }
-
-.step h3 {
-  margin:9px 0;
+.feature h3,.step h3{font-size:16px;margin-bottom:8px}
+.feature p,.step p{font-size:13px;color:var(--muted)}
+.explore{background:#080a0b}
+.search{
+  display:block;
+  width:min(520px,100%);
+  margin:0 auto 30px;
+  padding:14px 16px;
+  background:#101214;
+  border:1px solid #30363b;
+  border-radius:6px;
+  color:white;
+  outline:none;
+  font-size:14px;
 }
-
-.step p {
+.search:focus{border-color:var(--blue)}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.category{
+  padding:17px;
+  transition:border-color .2s;
+}
+.category:hover{border-color:var(--blue)}
+.category strong{display:block;font-size:14px}
+.category small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.number{color:var(--blue);font-size:25px;font-weight:bold;margin-bottom:12px}
+.cta{text-align:center;background:#080a0b}
+.cta h2{font-size:32px;margin-bottom:12px}
+.cta p{color:var(--muted);margin-bottom:25px}
+footer{
+  padding:30px 7%;
+  border-top:1px solid #202326;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
   color:var(--muted);
-  font-size:13px;
-}
-
-/* CTA */
-
-.cta {
-  margin:10px 0 70px;
-  padding:32px;
-  border:1px solid #174A45;
-  border-radius:15px;
-  background:#0B1513;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.cta h2 {
-  font-size:25px;
-}
-
-/* FOOTER */
-
-footer {
-  background:#050505;
-  border-top:1px solid #22282C;
-  padding:30px 0;
-}
-
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.footer-name {
-  font-size:19px;
-  font-weight:bold;
-}
-
-.footer-links {
-  display:flex;
-  gap:17px;
-  flex-wrap:wrap;
-  color:#A2ADB2;
   font-size:12px;
 }
-
-.footer-links a:hover {
-  color:var(--green);
+@media(max-width:800px){
+  nav{display:none}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
 }
-
-.copyright {
-  color:#77838A;
-  font-size:11px;
-}
-
-/* MOBILE */
-
-@media(max-width:850px) {
-  .navlinks {
-    gap:13px;
-    font-size:12px;
-  }
-
-  .categories {
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .features {
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:600px) {
-  .nav {
-    min-height:65px;
-  }
-
-  .brand {
-    font-size:18px;
-  }
-
-  .logo {
-    width:38px;
-    height:38px;
-  }
-
-  .navlinks {
-    display:none;
-  }
-
-  .hero {
-    grid-template-columns:1fr;
-    padding:45px 0 25px;
-  }
-
-  .hero-art {
-    min-height:180px;
-  }
-
-  .hero-logo {
-    width:170px;
-  }
-
-  .categories {
-    grid-template-columns:repeat(2,1fr);
-    gap:9px;
-  }
-
-  .category {
-    padding:11px;
-    gap:7px;
-  }
-
-  .category strong {
-    font-size:12px;
-  }
-
-  .category small {
-    font-size:10px;
-  }
-
-  .category-icon {
-    font-size:21px;
-    width:29px;
-  }
-
-  .steps {
-    grid-template-columns:1fr;
-  }
-
-  .section h2 {
-    font-size:24px;
-  }
-
-  .features {
-    gap:9px;
-  }
-
-  .feature {
-    padding:14px;
-  }
-
-  .cta {
-    padding:23px;
-  }
+@media(max-width:420px){
+  header{padding:0 5%}
+  .brand-name{font-size:16px}
+  .header-btn{padding:8px 11px}
+  section{padding:60px 5%}
+  .features{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-<div class="container nav">
-
-<a href="#" class="brand">
-<svg class="logo" viewBox="0 0 100 100">
-<defs>
-<linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#24D66B"/>
-<stop offset="100%" stop-color="#087DCE"/>
-</linearGradient>
-</defs>
-<path d="M72 22 A37 37 0 1 0 76 68"
-fill="none" stroke="url(#logoGradient)"
-stroke-width="12" stroke-linecap="round"/>
-<path d="M48 53 L86 88"
-stroke="#087DCE" stroke-width="13"
-stroke-linecap="round"/>
-<path d="M29 49 L43 63 L69 34"
-fill="none" stroke="#24D66B"
-stroke-width="7" stroke-linecap="round"
-stroke-linejoin="round"/>
-</svg>
-<span>QAVELYNT</span>
-</a>
-
-<nav class="navlinks">
-<a href="#">Home</a>
-<a href="#categories">Explore</a>
-<a href="#steps">Collaborate</a>
-<a href="#features">About</a>
-</nav>
-
-<div class="nav-actions">
-<a href="#join" class="signin">Sign In</a>
-<a href="#join" class="join">Join Now</a>
-</div>
-
-</div>
+  <a href="#" class="brand">
+    <svg class="logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="12" stroke="#087DCE" stroke-width="4"/>
+      <path d="M26 26L35 35" stroke="#24D66B" stroke-width="4"/>
+    </svg>
+    <span class="brand-name">QAVELYNT</span>
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#how">How It Works</a>
+    <a href="#about">About</a>
+  </nav>
+  <a href="#join" class="header-btn">Join Now</a>
 </header>
 
 <main>
-
-<section class="container hero">
-
-<div>
-<div class="eyebrow">CONNECT · COLLABORATE · GROW</div>
-
-<h1>
-Connect Ideas.<br>
-<span class="gradient">Build Tomorrow.</span>
-</h1>
-
-<p>
-A global platform where people, knowledge and creativity
-come together to discover opportunities, build projects
-and create a better future.
-</p>
-
-<div class="actions">
-<a href="#categories" class="btn">Explore Fields →</a>
-<a href="#features" class="btn btn-outline">Discover More</a>
-</div>
+<div class="hero" id="about">
+  <div class="eyebrow">A WORLD OF COLLABORATION</div>
+  <h1>Connect Ideas.<br><span>Build Tomorrow.</span></h1>
+  <p>A place where people, skills and ideas come together to create meaningful projects and make new possibilities real.</p>
+  <div class="actions">
+    <a href="#explore" class="btn primary">Explore Fields</a>
+    <a href="#how" class="btn secondary">Discover More</a>
+  </div>
 </div>
 
-<div class="hero-art">
-<svg class="hero-logo" viewBox="0 0 100 100">
-<defs>
-<linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#24D66B"/>
-<stop offset="100%" stop-color="#087DCE"/>
-</linearGradient>
-</defs>
-<path d="M72 22 A37 37 0 1 0 76 68"
-fill="none" stroke="url(#heroGradient)"
-stroke-width="11" stroke-linecap="round"/>
-<path d="M48 53 L86 88"
-stroke="#087DCE" stroke-width="12"
-stroke-linecap="round"/>
-<path d="M29 49 L43 63 L69 34"
-fill="none" stroke="#24D66B"
-stroke-width="7" stroke-linecap="round"
-stroke-linejoin="round"/>
-</svg>
-</div>
-
+<section>
+  <div class="section-head">
+    <h2>One Platform. Endless Possibilities.</h2>
+    <p>Everything you need to turn an idea into a shared project.</p>
+  </div>
+  <div class="features">
+    <article class="feature">
+      <div class="feature-mark">01</div>
+      <h3>Global Community</h3>
+      <p>Meet people with different skills, interests and perspectives.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-mark">02</div>
+      <h3>Smart Collaboration</h3>
+      <p>Find people whose abilities complement your ideas.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-mark">03</div>
+      <h3>Project Building</h3>
+      <p>Bring people together and develop new projects.</p>
+    </article>
+    <article class="feature">
+      <div class="feature-mark">04</div>
+      <h3>Knowledge Sharing</h3>
+      <p>Share what you know and learn from others.</p>
+    </article>
+  </div>
 </section>
 
-<section class="container features" id="features">
-
-<div class="feature">
-<div class="feature-icon">🌐</div>
-<h3>Global Community</h3>
-<p>ارتباط با افراد از سراسر جهان</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🤝</div>
-<h3>Smart Collaboration</h3>
-<p>همکاری هوشمند و هدفمند</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🚀</div>
-<h3>Project Building</h3>
-<p>تبدیل ایده‌ها به پروژه</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">💡</div>
-<h3>Knowledge Sharing</h3>
-<p>اشتراک دانش و تجربه</p>
-</div>
-
+<section class="explore" id="explore">
+  <div class="section-head">
+    <h2>Explore Every Field</h2>
+    <p>Discover your interests. Find your community.</p>
+  </div>
+  <input class="search" id="search" type="search" placeholder="Search fields...">
+  <div class="categories" id="categories">
+    <a class="category"><strong>Technology</strong><small>فناوری</small></a>
+    <a class="category"><strong>Artificial Intelligence</strong><small>هوش مصنوعی</small></a>
+    <a class="category"><strong>Science</strong><small>علوم</small></a>
+    <a class="category"><strong>Business</strong><small>کسب‌وکار</small></a>
+    <a class="category"><strong>Arts & Design</strong><small>هنر و طراحی</small></a>
+    <a class="category"><strong>Education</strong><small>آموزش</small></a>
+    <a class="category"><strong>Health</strong><small>سلامت</small></a>
+    <a class="category"><strong>Engineering</strong><small>مهندسی</small></a>
+    <a class="category"><strong>Environment</strong><small>محیط زیست</small></a>
+    <a class="category"><strong>Sports</strong><small>ورزش</small></a>
+    <a class="category"><strong>Media</strong><small>رسانه</small></a>
+    <a class="category"><strong>Law</strong><small>حقوق</small></a>
+    <a class="category"><strong>History</strong><small>تاریخ</small></a>
+    <a class="category"><strong>Psychology</strong><small>روان‌شناسی</small></a>
+    <a class="category"><strong>Architecture</strong><small>معماری</small></a>
+    <a class="category"><strong>Agriculture</strong><small>کشاورزی</small></a>
+    <a class="category"><strong>Finance</strong><small>امور مالی</small></a>
+    <a class="category"><strong>Game Development</strong><small>بازی‌سازی</small></a>
+    <a class="category"><strong>Photography</strong><small>عکاسی</small></a>
+    <a class="category"><strong>Music</strong><small>موسیقی</small></a>
+    <a class="category"><strong>Literature</strong><small>ادبیات</small></a>
+    <a class="category"><strong>Geography</strong><small>جغرافیا</small></a>
+    <a class="category"><strong>Research</strong><small>پژوهش</small></a>
+    <a class="category"><strong>Languages</strong><small>زبان‌ها</small></a>
+    <a class="category"><strong>Automotive</strong><small>خودرو</small></a>
+    <a class="category"><strong>Aerospace</strong><small>هوافضا</small></a>
+    <a class="category"><strong>Philosophy</strong><small>فلسفه</small></a>
+    <a class="category"><strong>Marketing</strong><small>بازاریابی</small></a>
+    <a class="category"><strong>Energy</strong><small>انرژی</small></a>
+    <a class="category"><strong>Journalism</strong><small>روزنامه‌نگاری</small></a>
+    <a class="category"><strong>Fashion</strong><small>مد و پوشاک</small></a>
+    <a class="category"><strong>Cybersecurity</strong><small>امنیت سایبری</small></a>
+    <a class="category"><strong>Mathematics</strong><small>ریاضیات</small></a>
+    <a class="category"><strong>Biotechnology</strong><small>زیست‌فناوری</small></a>
+    <a class="category"><strong>Construction</strong><small>ساخت‌وساز</small></a>
+    <a class="category"><strong>Nutrition</strong><small>تغذیه</small></a>
+    <a class="category"><strong>Tourism</strong><small>گردشگری</small></a>
+    <a class="category"><strong>Entrepreneurship</strong><small>کارآفرینی</small></a>
+    <a class="category"><strong>Space Science</strong><small>علوم فضایی</small></a>
+    <a class="category"><strong>Economics</strong><small>اقتصاد</small></a>
+    <a class="category"><strong>Product Design</strong><small>طراحی محصول</small></a>
+    <a class="category"><strong>Astronomy</strong><small>ستاره‌شناسی</small></a>
+    <a class="category"><strong>Robotics</strong><small>رباتیک</small></a>
+    <a class="category"><strong>Web Development</strong><small>توسعه وب</small></a>
+    <a class="category"><strong>Data Science</strong><small>علم داده</small></a>
+    <a class="category"><strong>Urban Planning</strong><small>برنامه‌ریزی شهری</small></a>
+  </div>
 </section>
 
-<section class="container section" id="categories">
-
-<div class="section-head">
-<div>
-<div class="eyebrow">DISCOVER YOUR WORLD</div>
-<h2>Explore Categories</h2>
-<p class="subtitle">Discover your interests. Find your community.</p>
-</div>
-
-<input id="search" class="search"
-type="search" placeholder="Search categories...">
-</div>
-
-<div class="categories" id="categoryGrid">
-
-<a class="category"><span class="category-icon">💻</span><span><strong>Technology</strong><small>فناوری</small></span></a>
-<a class="category"><span class="category-icon">🔬</span><span><strong>Science</strong><small>علوم</small></span></a>
-<a class="category"><span class="category-icon">📊</span><span><strong>Business</strong><small>کسب‌وکار</small></span></a>
-<a class="category"><span class="category-icon">🎨</span><span><strong>Arts & Design</strong><small>هنر و طراحی</small></span></a>
-
-<a class="category"><span class="category-icon">🎓</span><span><strong>Education</strong><small>آموزش</small></span></a>
-<a class="category"><span class="category-icon">🩺</span><span><strong>Health</strong><small>سلامت</small></span></a>
-<a class="category"><span class="category-icon">⚙️</span><span><strong>Engineering</strong><small>مهندسی</small></span></a>
-<a class="category"><span class="category-icon">🌱</span><span><strong>Environment</strong><small>محیط زیست</small></span></a>
-
-<a class="category"><span class="category-icon">🏆</span><span><strong>Sports</strong><small>ورزش</small></span></a>
-<a class="category"><span class="category-icon">🎬</span><span><strong>Media</strong><small>رسانه</small></span></a>
-<a class="category"><span class="category-icon">⚖️</span><span><strong>Law</strong><small>حقوق</small></span></a>
-<a class="category"><span class="category-icon">🏛️</span><span><strong>History</strong><small>تاریخ</small></span></a>
-
-<a class="category"><span class="category-icon">🧠</span><span><strong>Psychology</strong><small>روان‌شناسی</small></span></a>
-<a class="category"><span class="category-icon">📐</span><span><strong>Architecture</strong><small>معماری</small></span></a>
-<a class="category"><span class="category-icon">🌾</span><span><strong>Agriculture</strong><small>کشاورزی</small></span></a>
-<a class="category"><span class="category-icon">💰</span><span><strong>Finance</strong><small>امور مالی</small></span></a>
-
-<a class="category"><span class="category-icon">🎮</span><span><strong>Game Development</strong><small>بازی‌سازی</small></span></a>
-<a class="category"><span class="category-icon">🤖</span><span><strong>Artificial Intelligence</strong><small>هوش مصنوعی</small></span></a>
-<a class="category"><span class="category-icon">📷</span><span><strong>Photography</strong><small>عکاسی</small></span></a>
-<a class="category"><span class="category-icon">🎵</span><span><strong>Music</strong><small>موسیقی</small></span></a>
-
-<a class="category"><span class="category-icon">📚</span><span><strong>Literature</strong><small>ادبیات</small></span></a>
-<a class="category"><span class="category-icon">🌍</span><span><strong>Geography</strong><small>جغرافیا</small></span></a>
-<a class="category"><span class="category-icon">🧪</span><span><strong>Research</strong><small>پژوهش</small></span></a>
-<a class="category"><span class="category-icon">🗣️</span><span><strong>Languages</strong><small>زبان‌ها</small></span></a>
-
-<a class="category"><span class="category-icon">🚗</span><span><strong>Automotive</strong><small>خودرو</small></span></a>
-<a class="category"><span class="category-icon">✈️</span><span><strong>Aerospace</strong><small>هوافضا</small></span></a>
-<a class="category"><span class="category-icon">🧩</span><span><strong>Philosophy</strong><small>فلسفه</small></span></a>
-<a class="category"><span class="category-icon">🏙️</span><span><strong>Urban Planning</strong><small>برنامه‌ریزی شهری</small></span></a>
-
-<a class="category"><span class="category-icon">🛍️</span><span><strong>Marketing</strong><small>بازاریابی</small></span></a>
-<a class="category"><span class="category-icon">🔋</span><span><strong>Energy</strong><small>انرژی</small></span></a>
-<a class="category"><span class="category-icon">📰</span><span><strong>Journalism</strong><small>روزنامه‌نگاری</small></span></a>
-<a class="category"><span class="category-icon">🧵</span><span><strong>Fashion</strong><small>مد و پوشاک</small></span></a>
-
-<a class="category"><span class="category-icon">🔐</span><span><strong>Cybersecurity</strong><small>امنیت سایبری</small></span></a>
-<a class="category"><span class="category-icon">🧮</span><span><strong>Mathematics</strong><small>ریاضیات</small></span></a>
-<a class="category"><span class="category-icon">🧬</span><span><strong>Biotechnology</strong><small>زیست‌فناوری</small></span></a>
-<a class="category"><span class="category-icon">🏗️</span><span><strong>Construction</strong><small>ساختمان‌سازی</small></span></a>
-
-<a class="category"><span class="category-icon">🍎</span><span><strong>Nutrition</strong><small>تغذیه</small></span></a>
-<a class="category"><span class="category-icon">🧭</span><span><strong>Tourism</strong><small>گردشگری</small></span></a>
-<a class="category"><span class="category-icon">🪴</span><span><strong>Gardening</strong><small>باغبانی</small></span></a>
-<a class="category"><span class="category-icon">🧑‍💼</span><span><strong>Entrepreneurship</strong><small>کارآفرینی</small></span></a>
-
-<a class="category"><span class="category-icon">🛰️</span><span><strong>Space Science</strong><small>علوم فضایی</small></span></a>
-<a class="category"><span class="category-icon">🏦</span><span><strong>Economics</strong><small>اقتصاد</small></span></a>
-<a class="category"><span class="category-icon">🧱</span><span><strong>Product Design</strong><small>طراحی محصول</small></span></a>
-<a class="category"><span class="category-icon">🔭</span><span><strong>Astronomy</strong><small>نجوم</small></span></a>
-
-</div>
-
-<p id="noResults" class="no-results" hidden>
-No categories found. / حوزه‌ای پیدا نشد.
-</p>
-
+<section id="how">
+  <div class="section-head">
+    <h2>How It Works</h2>
+    <p>Three simple steps to start building together.</p>
+  </div>
+  <div class="steps">
+    <article class="step">
+      <div class="number">01</div>
+      <h3>Discover</h3>
+      <p>Explore fields, ideas and people who share your interests.</p>
+    </article>
+    <article class="step">
+      <div class="number">02</div>
+      <h3>Connect</h3>
+      <p>Find collaborators and bring complementary skills together.</p>
+    </article>
+    <article class="step">
+      <div class="number">03</div>
+      <h3>Create</h3>
+      <p>Work together and turn promising ideas into real projects.</p>
+    </article>
+  </div>
 </section>
 
-<section class="container section" id="steps">
-
-<div class="eyebrow">YOUR JOURNEY STARTS HERE</div>
-<h2>How It Works</h2>
-<p class="subtitle">سه مرحله برای شروع یک همکاری تازه</p>
-
-<div class="steps">
-
-<div class="step">
-<div class="step-number">01</div>
-<h3>Discover</h3>
-<p>حوزه‌ها و افراد مورد علاقه‌ات را پیدا کن.</p>
-</div>
-
-<div class="step">
-<div class="step-number">02</div>
-<h3>Connect</h3>
-<p>با افراد هم‌فکر و متخصص ارتباط برقرار کن.</p>
-</div>
-
-<div class="step">
-<div class="step-number">03</div>
-<h3>Create</h3>
-<p>ایده‌هایتان را به پروژه‌های واقعی تبدیل کنید.</p>
-</div>
-
-</div>
+<section class="cta" id="join">
+  <h2>Ideas Grow Together.</h2>
+  <p>Your next great project could start with one connection.</p>
+  <a href="#explore" class="btn primary">Explore QAVELYNT</a>
 </section>
-
-<section class="container cta" id="join">
-<div>
-<h2>Build Something Meaningful.</h2>
-<p class="subtitle">Connect Ideas. Build Tomorrow.</p>
-</div>
-<a href="#categories" class="btn">Explore QAVELYNT →</a>
-</section>
-
 </main>
 
 <footer>
-<div class="container footer-inner">
-<div>
-<div class="footer-name">QAVELYNT</div>
-<p class="subtitle">Connect Ideas. Build Tomorrow.</p>
-</div>
-
-<div class="footer-links">
-<a href="#features">About</a>
-<a href="#categories">Explore</a>
-<a href="#steps">Collaborate</a>
-<a href="#join">Contact</a>
-</div>
-
-<div class="copyright">
-© 2026 QAVELYNT. All rights reserved.
-</div>
-</div>
+  <div>© 2026 QAVELYNT. All rights reserved.</div>
+  <div>Connect Ideas. Build Tomorrow.</div>
 </footer>
 
 <script>
-const search = document.getElementById("search");
-const cards = [...document.querySelectorAll(".category")];
-const noResults = document.getElementById("noResults");
-
-search.addEventListener("input", () => {
-  const term = search.value.trim().toLowerCase();
-  let count = 0;
-
+const search = document.getElementById('search');
+const cards = document.querySelectorAll('.category');
+search.addEventListener('input', function(){
+  const value = this.value.toLowerCase().trim();
   cards.forEach(card => {
-    const match = card.textContent.toLowerCase().includes(term);
-    card.style.display = match ? "flex" : "none";
-    if (match) count++;
+    card.style.display = card.innerText.toLowerCase().includes(value) ? '' : 'none';
   });
-
-  noResults.hidden = count !== 0;
 });
 </script>
-
 </body>
 </html>
