@@ -228,6 +228,26 @@ form.addEventListener("submit", function(event) {
     "Real account creation will be enabled after secure backend setup."
   );
 });
+<script>
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+
+  if (password && confirmPassword &&
+      password.value !== confirmPassword.value) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  alert(
+    "Your registration interface is ready. " +
+    "Real account creation will be enabled after secure backend setup."
+  );
+});
 </script>
 </body>
   </html>
