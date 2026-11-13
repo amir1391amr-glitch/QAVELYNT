@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology | QAVELYNT</title>
+<style>
+:root{
+  --black:#100E0C;
+  --dark:#191511;
+  --brown:#60432F;
+  --cream:#F1E8D8;
+  --soft:#B9A58E;
+  --line:#352A21;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:Arial,sans-serif;
+}
+header{
+  padding:22px 7%;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:20px;
+  letter-spacing:3px;
+  font-weight:bold;
+}
+.logo span{color:var(--soft)}
+nav a{
+  color:var(--soft);
+  text-decoration:none;
+  margin-left:18px;
+  font-size:13px;
+}
+main{
+  width:min(1100px,86%);
+  margin:75px auto;
+}
+.eyebrow{
+  color:var(--soft);
+  letter-spacing:3px;
+  font-size:12px;
+}
+h1{
+  font-size:clamp(38px,7vw,68px);
+  margin:18px 0;
+}
+.intro{
+  color:var(--soft);
+  line-height:1.9;
+  max-width:650px;
+}
+.section-title{
+  margin-top:65px;
+  font-size:24px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-top:25px;
+}
+.item{
+  display:block;
+  padding:25px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  text-decoration:none;
+  color:var(--cream);
+  transition:.2s;
+}
+.item:hover{
+  border-color:var(--soft);
+  transform:translateY(-3px);
+}
+.item h3{margin:0 0 10px;font-size:18px}
+.item p{
+  color:var(--soft);
+  font-size:13px;
+  line-height:1.7;
+  margin:0;
+}
+.back{
+  display:inline-block;
+  margin-top:55px;
+  color:var(--soft);
+  text-decoration:none;
+  border-bottom:1px solid var(--brown);
+  padding-bottom:6px;
+}
+footer{
+  border-top:1px solid var(--line);
+  padding:25px 7%;
+  color:var(--soft);
+  font-size:12px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">QAVE<span>LYNT</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#categories">Explore</a>
+  </nav>
+</header>
+
+<main>
+  <div class="eyebrow">EXPLORE A FIELD</div>
+  <h1>Technology</h1>
+  <p class="intro">
+    Discover ideas, share knowledge and connect with people
+    who are building the future of technology.
+  </p>
+
+  <h2 class="section-title">Explore Technology</h2>
+
+  <div class="grid">
+    <a class="item" href="#">
+      <h3>Artificial Intelligence</h3>
+      <p>AI, machine learning and intelligent systems.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Software Development</h3>
+      <p>Programming, applications and software engineering.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Robotics</h3>
+      <p>Robots, automation and smart machines.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Cybersecurity</h3>
+      <p>Digital safety, privacy and secure systems.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Web Development</h3>
+      <p>Websites, web applications and digital experiences.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Data Science</h3>
+      <p>Data analysis, visualization and useful insights.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Computer Engineering</h3>
+      <p>Computer systems, hardware and architecture.</p>
+    </a>
+
+    <a class="item" href="#">
+      <h3>Hardware</h3>
+      <p>Electronic devices, components and innovation.</p>
+    </a>
+  </div>
+
+  <a class="back" href="index.html">← Back to Home</a>
+</main>
+
+<footer>
+  QAVELYNT · Connect Ideas. Build Tomorrow.
+</footer>
+
+</body>
+</html>
