@@ -4,426 +4,321 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="QAVELYNT is a platform for connecting ideas, skills and people to build tomorrow.">
 <title>QAVELYNT | Connect Ideas. Build Tomorrow.</title>
-
 <style>
-:root {
-  --black: #100E0C;
-  --dark: #191511;
-  --brown: #60432F;
-  --cream: #F1E8D8;
-  --soft: #B9A58E;
-  --line: #352A21;
+:root{
+  --black:#100E0C;
+  --dark:#191511;
+  --brown:#60432F;
+  --cream:#F1E8D8;
+  --soft:#B9A58E;
+  --line:#352A21;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:Arial,sans-serif;
 }
-
-html {
-  scroll-behavior: smooth;
+a{color:inherit}
+header{
+  min-height:76px;
+  padding:18px 7%;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-
-body {
-  background: var(--black);
-  color: var(--cream);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+.logo{
+  font-size:21px;
+  font-weight:bold;
+  letter-spacing:3px;
+  text-decoration:none;
+  white-space:nowrap;
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
+.logo span{color:var(--soft)}
+nav{
+  display:flex;
+  align-items:center;
+  gap:23px;
+  flex-wrap:wrap;
 }
-
-header {
-  min-height: 76px;
-  padding: 14px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  background: var(--black);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+nav a{
+  color:var(--soft);
+  text-decoration:none;
+  font-size:13px;
 }
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+nav a:hover{color:var(--cream)}
+.join{
+  border:1px solid var(--brown);
+  padding:11px 17px;
+  color:var(--cream);
 }
-
-.logo {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
+.hero{
+  width:min(1100px,86%);
+  margin:105px auto 100px;
 }
-
-.brand-name {
-  font-size: 19px;
-  font-weight: bold;
-  letter-spacing: 2px;
+.eyebrow{
+  color:var(--soft);
+  font-size:12px;
+  letter-spacing:4px;
 }
-
-nav {
-  display: flex;
-  gap: 25px;
-  font-size: 13px;
-  color: var(--soft);
+h1{
+  font-size:clamp(42px,8vw,82px);
+  line-height:1.08;
+  margin:23px 0;
+  max-width:850px;
 }
-
-nav a:hover {
-  color: var(--cream);
+.hero p{
+  color:var(--soft);
+  font-size:16px;
+  line-height:1.9;
+  max-width:600px;
 }
-
-.header-btn {
-  border: 1px solid var(--soft);
-  padding: 9px 17px;
-  border-radius: 4px;
-  font-size: 12px;
+.actions{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-top:32px;
 }
-
-.hero {
-  padding: 120px 7% 115px;
-  min-height: 440px;
-  background: var(--black);
+.btn{
+  display:inline-block;
+  padding:15px 23px;
+  background:var(--cream);
+  color:var(--black);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
 }
-
-.eyebrow {
-  color: var(--soft);
-  letter-spacing: 3px;
-  font-size: 12px;
-  margin-bottom: 22px;
+.btn.secondary{
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--cream);
 }
-
-h1 {
-  font-size: clamp(42px, 7vw, 72px);
-  line-height: 1.12;
-  letter-spacing: -2px;
+.section{
+  width:min(1100px,86%);
+  margin:90px auto;
 }
-
-h1 span {
-  color: var(--soft);
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  flex-wrap:wrap;
 }
-
-.hero p {
-  color: var(--soft);
-  max-width: 560px;
-  margin: 22px 0 28px;
-  font-size: 15px;
+.section h2{
+  font-size:30px;
+  margin:12px 0;
 }
-
-.actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+.muted{
+  color:var(--soft);
+  line-height:1.8;
+  font-size:14px;
 }
-
-.btn {
-  display: inline-block;
-  padding: 12px 23px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: bold;
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:30px;
 }
-
-.primary {
-  background: var(--cream);
-  color: var(--black);
+.feature{
+  background:var(--dark);
+  border:1px solid var(--line);
+  padding:27px;
 }
-
-.secondary {
-  border: 1px solid var(--soft);
+.feature h3{font-size:18px;margin:0 0 13px}
+.feature p{
+  color:var(--soft);
+  font-size:13px;
+  line-height:1.8;
+  margin:0;
 }
-
-section {
-  padding: 75px 7%;
+.search{
+  width:100%;
+  margin-top:27px;
+  padding:17px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  color:var(--cream);
+  font-size:14px;
+  outline:none;
 }
-
-.section-head {
-  text-align: center;
-  margin-bottom: 38px;
+.search:focus{border-color:var(--soft)}
+.search::placeholder{color:#8F7D6A}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
+  margin-top:20px;
 }
-
-.section-head h2 {
-  font-size: 30px;
-  margin-bottom: 8px;
+.category{
+  display:block;
+  padding:20px;
+  background:var(--dark);
+  border:1px solid var(--line);
+  text-decoration:none;
+  transition:.2s;
 }
-
-.section-head p {
-  font-size: 14px;
-  color: var(--soft);
+.category:hover{
+  border-color:var(--soft);
+  transform:translateY(-3px);
 }
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+.category strong{
+  display:block;
+  font-size:15px;
+  font-weight:600;
 }
-
-.feature, .category, .step {
-  background: var(--dark);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 22px;
+.category small{
+  display:block;
+  color:var(--soft);
+  margin-top:8px;
+  font-size:12px;
 }
-
-.feature-mark {
-  color: var(--soft);
-  font-size: 22px;
-  margin-bottom: 12px;
+.empty{
+  display:none;
+  color:var(--soft);
+  padding:25px 0;
+  font-size:14px;
 }
-
-.feature h3, .step h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  margin-top:30px;
 }
-
-.feature p, .step p {
-  font-size: 13px;
-  color: var(--soft);
+.step{
+  padding:25px;
+  border-top:1px solid var(--brown);
+  background:var(--dark);
 }
-
-.explore {
-  background: #15110E;
+.number{
+  color:var(--soft);
+  font-size:12px;
+  letter-spacing:2px;
 }
-
-.search {
-  display: block;
-  width: min(520px, 100%);
-  margin: 0 auto 30px;
-  padding: 14px 16px;
-  background: var(--dark);
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  color: var(--cream);
-  outline: none;
+.step h3{font-size:18px}
+.step p{
+  color:var(--soft);
+  font-size:13px;
+  line-height:1.8;
 }
-
-.search:focus {
-  border-color: var(--soft);
+.cta{
+  background:var(--dark);
+  border:1px solid var(--line);
+  padding:55px 35px;
+  text-align:center;
 }
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+.cta h2{font-size:32px}
+.cta p{
+  color:var(--soft);
+  line-height:1.8;
 }
-
-.category {
-  padding: 16px;
-  transition: border-color .2s;
+footer{
+  border-top:1px solid var(--line);
+  padding:35px 7%;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+  color:var(--soft);
+  font-size:12px;
 }
-
-.category:hover {
-  border-color: var(--soft);
+footer a{
+  color:var(--soft);
+  text-decoration:none;
 }
-
-.category strong {
-  display: block;
-  font-size: 14px;
-}
-
-.category small {
-  display: block;
-  color: var(--soft);
-  font-size: 11px;
-  margin-top: 3px;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.number {
-  font-size: 25px;
-  color: var(--soft);
-  margin-bottom: 12px;
-}
-
-.cta {
-  text-align: center;
-  background: #15110E;
-}
-
-.cta h2 {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.cta p {
-  color: var(--soft);
-  margin-bottom: 24px;
-}
-
-footer {
-  padding: 30px 7%;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  color: var(--soft);
-  font-size: 12px;
-}
-
-@media(max-width:800px) {
-  nav {
-    display: none;
-  }
-
-  .features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .categories {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .steps {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media(max-width:420px) {
-  header {
-    padding: 14px 5%;
-  }
-
-  .brand-name {
-    font-size: 16px;
-  }
-
-  .header-btn {
-    padding: 8px 11px;
-  }
-
-  section {
-    padding: 60px 5%;
-  }
+@media(max-width:650px){
+  header{align-items:flex-start;flex-direction:column}
+  nav{gap:15px}
+  .hero{margin:75px auto}
+  .section{margin:70px auto}
+  .cta{padding:38px 20px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <a href="#" class="brand">
-
-    <!-- QAVELYNT LOGO - DESIGN 07 -->
-    <svg class="logo" viewBox="0 0 60 50"
-      fill="none" xmlns="http://www.w3.org/2000/svg">
-
-      <path d="M7 43V13C7 7 14 4 19 9L40 34C44 39 50 38 54 33"
-        stroke="#F1E8D8"
-        stroke-width="8"
-        stroke-linecap="square"
-        stroke-linejoin="round"/>
-
-      <path d="M7 43L27 20C31 15 37 15 41 20L54 33V7"
-        stroke="#F1E8D8"
-        stroke-width="8"
-        stroke-linecap="square"
-        stroke-linejoin="round"/>
-
-    </svg>
-
-    <span class="brand-name">QAVELYNT</span>
-  </a>
-
+  <a class="logo" href="index.html">QAVE<span>LYNT</span></a>
   <nav>
-    <a href="#">Home</a>
-    <a href="#explore">Explore</a>
+    <a href="#home">Home</a>
+    <a href="#categories">Explore</a>
     <a href="#how">How It Works</a>
     <a href="#about">About</a>
+    <a class="join" href="#join">Join Now</a>
   </nav>
-
-  <a href="#join" class="header-btn">Join Now</a>
 </header>
 
-<main>
-
-<div class="hero" id="about">
+<section class="hero" id="home">
   <div class="eyebrow">A WORLD OF COLLABORATION</div>
-
-  <h1>
-    Connect Ideas.<br>
-    <span>Build Tomorrow.</span>
-  </h1>
-
+  <h1>Connect Ideas.<br>Build Tomorrow.</h1>
   <p>
-    A place where people, skills and ideas come together
-    to create meaningful projects and discover new possibilities.
+    A place where people, skills and ideas come together.
+    Discover new fields, find collaborators and turn
+    possibilities into meaningful projects.
   </p>
-
   <div class="actions">
-    <a href="#explore" class="btn primary">Explore Fields</a>
-    <a href="#how" class="btn secondary">Learn More</a>
-  </div>
-</div>
-
-<section>
-  <div class="section-head">
-    <h2>One Platform. Endless Possibilities.</h2>
-    <p>Bring your ideas and skills together.</p>
-  </div>
-
-  <div class="features">
-
-    <article class="feature">
-      <div class="feature-mark">01</div>
-      <h3>Global Community</h3>
-      <p>Meet people with different skills and perspectives.</p>
-    </article>
-
-    <article class="feature">
-      <div class="feature-mark">02</div>
-      <h3>Smart Collaboration</h3>
-      <p>Discover people who complement your abilities.</p>
-    </article>
-
-    <article class="feature">
-      <div class="feature-mark">03</div>
-      <h3>Project Building</h3>
-      <p>Bring people together to develop new projects.</p>
-    </article>
-
-    <article class="feature">
-      <div class="feature-mark">04</div>
-      <h3>Knowledge Sharing</h3>
-      <p>Share what you know and learn from others.</p>
-    </article>
-
+    <a class="btn" href="#categories">Explore Fields</a>
+    <a class="btn secondary" href="#about">Discover QAVELYNT</a>
   </div>
 </section>
 
-<section class="explore" id="explore">
+<section class="section" id="about">
+  <div class="eyebrow">WHY QAVELYNT</div>
+  <h2>Ideas grow together.</h2>
+  <p class="muted">
+    Great projects can begin with a simple idea.
+    QAVELYNT is designed to bring different skills,
+    interests and perspectives closer together.
+  </p>
+  <div class="features">
+    <article class="feature">
+      <h3>Discover</h3>
+      <p>Explore different fields and discover new interests and opportunities.</p>
+    </article>
+    <article class="feature">
+      <h3>Connect</h3>
+      <p>Find people with shared interests, knowledge and complementary skills.</p>
+    </article>
+    <article class="feature">
+      <h3>Collaborate</h3>
+      <p>Bring ideas together and work toward meaningful projects.</p>
+    </article>
+    <article class="feature">
+      <h3>Create</h3>
+      <p>Turn knowledge and creativity into something new.</p>
+    </article>
+  </div>
+</section>
 
+<section class="section" id="categories">
   <div class="section-head">
-    <h2>Explore Every Field</h2>
-    <p>Discover your interests. Find your community.</p>
+    <div>
+      <div class="eyebrow">EXPLORE YOUR WORLD</div>
+      <h2>Explore 45 Fields</h2>
+      <p class="muted">Find your field. Discover your next idea.</p>
+    </div>
   </div>
 
   <input
     class="search"
-    id="search"
+    id="categorySearch"
     type="search"
-    placeholder="Search fields..."
+    placeholder="Search categories..."
+    aria-label="Search categories"
   >
 
-  <div class="categories" id="categories">
+  <div class="categories" id="categoryGrid">
 
-    <a class="category" href="technology.html"><strong>Technology</strong><small>فناوری</small></a>
+    <a class="category" data-slug="technology"><strong>Technology</strong><small>فناوری</small></a>
     <a class="category"><strong>Artificial Intelligence</strong><small>هوش مصنوعی</small></a>
     <a class="category"><strong>Science</strong><small>علوم</small></a>
     <a class="category"><strong>Business</strong><small>کسب‌وکار</small></a>
-    <a class="category"><strong>Arts & Design</strong><small>هنر و طراحی</small></a>
+    <a class="category"><strong>Arts &amp; Design</strong><small>هنر و طراحی</small></a>
     <a class="category"><strong>Education</strong><small>آموزش</small></a>
     <a class="category"><strong>Health</strong><small>سلامت</small></a>
     <a class="category"><strong>Engineering</strong><small>مهندسی</small></a>
@@ -467,62 +362,82 @@ footer {
     <a class="category"><strong>Urban Planning</strong><small>برنامه‌ریزی شهری</small></a>
 
   </div>
+  <p class="empty" id="noResults">No matching categories found.</p>
 </section>
 
-<section id="how">
-
-  <div class="section-head">
-    <h2>How It Works</h2>
-    <p>Three steps to start building together.</p>
-  </div>
-
+<section class="section" id="how">
+  <div class="eyebrow">HOW IT WORKS</div>
+  <h2>From idea to collaboration.</h2>
   <div class="steps">
-
     <article class="step">
-      <div class="number">01</div>
-      <h3>Discover</h3>
-      <p>Explore fields, ideas and people who share your interests.</p>
+      <div class="number">01 / EXPLORE</div>
+      <h3>Choose a Field</h3>
+      <p>Discover a subject that matches your interests.</p>
     </article>
-
     <article class="step">
-      <div class="number">02</div>
-      <h3>Connect</h3>
-      <p>Find collaborators and bring different skills together.</p>
+      <div class="number">02 / DISCOVER</div>
+      <h3>Find Ideas</h3>
+      <p>Explore topics, opportunities and new perspectives.</p>
     </article>
-
     <article class="step">
-      <div class="number">03</div>
-      <h3>Create</h3>
-      <p>Work together and turn ideas into projects.</p>
+      <div class="number">03 / CREATE</div>
+      <h3>Build Together</h3>
+      <p>Bring skills and ideas together to create projects.</p>
     </article>
-
   </div>
 </section>
 
-<section class="cta" id="join">
-  <h2>Ideas Grow Together.</h2>
-  <p>Your next great project could start with one connection.</p>
-  <a href="#explore" class="btn primary">Explore QAVELYNT</a>
+<section class="section" id="join">
+  <div class="cta">
+    <div class="eyebrow">YOUR NEXT IDEA STARTS HERE</div>
+    <h2>Think beyond boundaries.</h2>
+    <p>Explore new fields. Connect ideas. Build tomorrow.</p>
+    <a class="btn" href="#categories">Explore QAVELYNT</a>
+  </div>
 </section>
-
-</main>
 
 <footer>
-  <div>© 2026 QAVELYNT. All rights reserved.</div>
-  <div>Connect Ideas. Build Tomorrow.</div>
+  <a class="logo" href="index.html">QAVE<span>LYNT</span></a>
+  <span>QAVELYNT · Connect Ideas. Build Tomorrow.</span>
 </footer>
 
 <script>
-const search = document.getElementById('search');
-const cards = document.querySelectorAll('.category');
+const cards = document.querySelectorAll(".category");
+const search = document.getElementById("categorySearch");
+const noResults = document.getElementById("noResults");
 
-search.addEventListener('input', function() {
-  const value = this.value.toLowerCase().trim();
+function makeSlug(name){
+  return name.toLowerCase()
+    .replace(/&/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+cards.forEach(card => {
+  const title = card.querySelector("strong").textContent.trim();
+  const slug = card.dataset.slug || makeSlug(title);
+
+  if(slug === "technology"){
+    card.href = "technology.html";
+  }else{
+    card.href = "category.html?category=" + encodeURIComponent(slug);
+  }
+});
+
+search.addEventListener("input", function(){
+  const query = this.value.trim().toLowerCase();
+  let visible = 0;
 
   cards.forEach(card => {
-    card.style.display =
-      card.innerText.toLowerCase().includes(value) ? '' : 'none';
+    const title = card.querySelector("strong").textContent.toLowerCase();
+    const subtitle = card.querySelector("small").textContent.toLowerCase();
+    const match = title.includes(query) || subtitle.includes(query);
+
+    card.style.display = match ? "block" : "none";
+    if(match) visible++;
   });
+
+  noResults.style.display = visible === 0 ? "block" : "none";
 });
 </script>
 
